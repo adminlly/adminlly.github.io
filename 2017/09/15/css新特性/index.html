@@ -81,7 +81,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-09-15T15:58:39.000Z" itemprop="datePublished">2017-09-15</time>
-    Updated:<time datetime="2017-09-15T16:23:14.039Z" itemprop="dateModified">2017-09-16</time>
+    Updated:<time datetime="2017-09-15T16:26:03.422Z" itemprop="dateModified">2017-09-16</time>
     
   </p>
 </header>
@@ -131,13 +131,16 @@ css前缀 -khtml：苹果浏览器之前的版本，后改为WebKit内核
 </blockquote>
 <h3 id="文字阴影"><a href="#文字阴影" class="headerlink" title="文字阴影"></a>文字阴影</h3><blockquote>
 <p><code>text-shadow:-3px -3px 5px #000, 6px 6px 5px red;</code><br>参数：一组四个，可以存在多组；<br>     第一个：水平偏移量<br>     第二个：垂直偏移量<br>     第三个：阴影的模糊度，不能为负值<br>     第三个：颜色，通常是十六进制表示<br><a href="../02-code/03文字阴影/案例/文字阴影.html">文字阴影案例</a>    </p>
-<h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h2><h3 id="边框圆角"><a href="#边框圆角" class="headerlink" title="边框圆角"></a>边框圆角</h3><p><code>border-radius:200px 200px 200px 200px;</code><br>参数：原点、半径1-4个，可以不一样；<br>  可分别设置长、短半径，以“/”进行分隔，遵循“1，2，3，4”规则，“/”前面的1~4个用来设置横轴半径（分别对应横轴1、2、3、4位置 ），“/”后面1~4个参数用来设置纵轴半径（分别对应纵轴1、2、3、4位置 ）<br> <img src="/images/01.png" alt=""> </p>
-<p><a href="../02-code/05 边框/01 边框-圆角-介绍 border-radius.html">介绍示例</a></p>
+<h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h2><h3 id="边框圆角"><a href="#边框圆角" class="headerlink" title="边框圆角"></a>边框圆角</h3><p><code>border-radius:200px 200px 200px 200px;</code><br>参数：原点、半径1-4个，可以不一样；<br>  可分别设置长、短半径，以“/”进行分隔，遵循“1，2，3，4”规则，“/”前面的1~4个用来设置横轴半径（分别对应横轴1、2、3、4位置 ），“/”后面1~4个参数用来设置纵轴半径（分别对应纵轴1、2、3、4位置 ）<br> <img src="/images/1.png" alt=""> </p>
 </blockquote>
 <h4 id="正圆"><a href="#正圆" class="headerlink" title="正圆"></a>正圆</h4><blockquote>
-<p><code>border-radius:50%</code>正方形边长的一半(50%)，并且只写一个参数就可以。<br><a href="../02-code/05 边框/02 正圆 border-radius.html">正圆示例</a></p>
-<h4 id="椭圆"><a href="#椭圆" class="headerlink" title="椭圆"></a>椭圆</h4><p><code>border-radius:</code>可以写具体的数值，也可以用百分数表示，最好写一个参数。具体请看下图<br> <img src="/images/03.png" alt=""><br><a href="../02-code/05 边框/03 椭圆border-radius.html">椭圆示例</a></p>
-<h4 id="边框阴影"><a href="#边框阴影" class="headerlink" title="边框阴影"></a>边框阴影</h4><p><code>border-shadow</code><br> 1、水平偏移量 正值向右 负值向左；<br>    2、垂直偏移量 正值向下 负值向上；<br>    3、模糊度是不能为负值；<br>    4、inset可以设置内阴影；<br><strong>注意</strong>:设置边框阴影不会改变盒子的大小，即不会影响其兄弟元素的布局。<br>可以设置多重边框阴影，实现更好的效果，增强立体感。</p>
+<p><code>border-radius:50%</code>正方形边长的一半(50%)，并且只写一个参数就可以。</p>
+</blockquote>
+<h4 id="椭圆"><a href="#椭圆" class="headerlink" title="椭圆"></a>椭圆</h4><blockquote>
+<p><code>border-radius:</code>可以写具体的数值，也可以用百分数表示，最好写一个参数。具体请看下图<br> <img src="/images/03.png" alt=""></p>
+</blockquote>
+<h4 id="边框阴影"><a href="#边框阴影" class="headerlink" title="边框阴影"></a>边框阴影</h4><blockquote>
+<p><code>border-shadow</code><br> 1、水平偏移量 正值向右 负值向左；<br>    2、垂直偏移量 正值向下 负值向上；<br>    3、模糊度是不能为负值；<br>    4、inset可以设置内阴影；<br><strong>注意</strong>:设置边框阴影不会改变盒子的大小，即不会影响其兄弟元素的布局。<br>可以设置多重边框阴影，实现更好的效果，增强立体感。</p>
 <h4 id="边框图片-了解"><a href="#边框图片-了解" class="headerlink" title="边框图片(了解)"></a>边框图片(了解)</h4><p><code>border-image</code>:设置的图片将会被“切割”成九宫格形式，然后进行设置.<br> <img src="/images/bd-img1.png" alt=""><br>“切割”完成后生成虚拟的9块图形，然后按对应位置设置背景<br>其中四个角位置、形状保持不变，中心位置水平垂直两个方向平铺。如下图<br> <img src="/images/bd-img2.png" alt=""> </p>
 <h5 id="repeat和round的区别"><a href="#repeat和round的区别" class="headerlink" title="repeat和round的区别"></a>repeat和round的区别</h5><p><strong>round</strong> 会自动调整尺寸，完整显示边框图片。<br> <img src="/images/bd-img3.png" alt=""><br><strong>repeat</strong> 单纯平铺多余部分，会被“裁切”而不能完整显示。<br> <img src="/images/bd-img4.png" alt=""> </p>
 <h5 id="更改裁切尺寸"><a href="#更改裁切尺寸" class="headerlink" title="更改裁切尺寸"></a>更改裁切尺寸</h5><p><code>background-slice: 34 36 27 27;</code>分别设置裁切如下图<br> <img src="/images/bd-img5.png" alt=""> </p>
