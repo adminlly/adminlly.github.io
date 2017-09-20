@@ -1,0 +1,464 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>李刘玉的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="李刘玉">
+    
+    <meta name="description" content="如何评价AngularJS和BackboneJS
+
+backbone具有依赖性，依赖underscore.js。Backbone + Underscore + jQuery(or Zepto)就比一个AngularJS 多出了2 次HTTP请求.
+
+Backbone的Model没有与UI视图数据绑定">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="李刘玉的博客" title="李刘玉的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="李刘玉的博客">李刘玉的博客</a></h1>
+				<h2 class="blog-motto">胆小认生，踏实认真</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">档案</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:adminlly.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/09/20/other/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://adminlly.github.io" title="李刘玉">李刘玉</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-09-20T11:04:14.978Z" itemprop="datePublished">2017-09-20</time>
+    更新日期:<time datetime="2017-09-20T11:00:54.959Z" itemprop="dateModified">2017-09-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+		</div>
+		
+		<p><strong>如何评价AngularJS和BackboneJS</strong></p>
+<ul>
+<li><p>backbone具有依赖性，依赖underscore.js。Backbone + Underscore + jQuery(or Zepto)就比一个AngularJS 多出了2 次HTTP请求.</p>
+</li>
+<li><p>Backbone的Model没有与UI视图数据绑定，而是需要在View中自行操作DOM来更新或读取UI数据。AngularJS与此相反，Model直接与UI视图绑定，Model与UI视图的关系，通过directive封装，AngularJS内置的通用directive，就能实现大部分操作了，也就是说，基本不必关心Model与UI视图的关系，直接操作Model就行了，UI视图自动更新</p>
+</li>
+<li>AngularJS的directive，你输入特定数据，他就能输出相应UI视图。是一个比较完善的前端MVW框架，包含模板，数据双向绑定，路由，模块化，服务，依赖注入等所有功能，模板功能强大丰富，并且是声明式的，自带了丰富的 Angular 指令</li>
+</ul>
+<p><strong>谈谈你对重构的理解</strong></p>
+<ul>
+<li><p>网站重构：在不改变外部行为的前提下，简化结构、添加可读性，而在网站前端保持一致的行为。也就是说是在不改变UI的情况下，对网站进行优化， 在扩展的同时保持一致的UI</p>
+</li>
+<li><p>对于传统的网站来说重构通常是：</p>
+<ul>
+<li><p>表格(table)布局改为DIV+CSS</p>
+</li>
+<li><p>使网站前端兼容于现代浏览器(针对于不合规范的CSS、如对IE6有效的)</p>
+</li>
+<li><p>对于移动平台的优化</p>
+</li>
+<li><p>针对于SEO进行优化</p>
+</li>
+<li><p>深层次的网站重构应该考虑的方面</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>说说你对前端架构师的理解</strong></p>
+<ul>
+<li>负责前端团队的管理及与其他团队的协调工作，提升团队成员能力和整体效率；带领团队完成研发工具及平台前端部分的设计、研发和维护； 带领团队进行前端领域前沿技术研究及新技术调研，保证团队的技术领先负责前端开发规范制定、功能模块化设计、公共组件搭建等工作，并组织培训</li>
+</ul>
+<p><strong>什么样的前端代码是好的</strong></p>
+<ul>
+<li>高复用低耦合，这样文件小，好维护，而且好扩展。</li>
+</ul>
+<p><strong>谈谈你对webpack的看法</strong></p>
+<blockquote>
+<p>WebPack 是一个模块打包工具，你可以使用WebPack管理你的模块依赖，并编绎输出模块们所需的静态文件。它能够很好地管理、打包Web开发中所用到的HTML、Javascript、CSS以及各种静态文件（图片、字体等），让开发过程更加高效。对于不同类型的资源，webpack有对应的模块加载器。webpack模块打包器会分析模块间的依赖关系，最后 生成了优化且合并后的静态资源</p>
+</blockquote>
+<p><strong>页面重构怎么操作？</strong></p>
+<ul>
+<li><p>网站重构：不改变UI的情况下，对网站进行优化，在扩展的同时保持一致的UI。</p>
+</li>
+<li><p>页面重构可以考虑的方面：</p>
+<ul>
+<li>升级第三方依赖</li>
+<li>使用HTML5、CSS3、ES6 新特性</li>
+<li>加入响应式布局</li>
+<li>统一代码风格规范</li>
+<li>减少代码间的耦合</li>
+<li>压缩/合并静态资源</li>
+<li>程序的性能优化</li>
+<li>采用CDN来加速资源加载</li>
+<li>对于JS DOM的优化</li>
+<li>HTTP服务器的文件缓存</li>
+</ul>
+</li>
+</ul>
+<p><strong>列举IE与其他浏览器不一样的特性？</strong></p>
+<ul>
+<li>IE 的渲染引擎是 Trident 与 W3C 标准差异较大：例如盒子模型的怪异模式</li>
+<li>JS 方面有很多独立的方法，例如事件处理不同：绑定/删除事件，阻止冒泡，阻止默认事件等</li>
+<li>CSS 方面也有自己独有的处理方式，例如设置透明，低版本IE中使用滤镜的方式</li>
+</ul>
+<p><strong>是否了解公钥加密和私钥加密？</strong></p>
+<ul>
+<li>私钥用于对数据进行签名，公钥用于对签名进行验证</li>
+<li>网站在浏览器端用公钥加密敏感数据，然后在服务器端再用私钥解密</li>
+</ul>
+<p><strong>WEB应用从服务器主动推送Data到客户端有那些方式？</strong></p>
+<ul>
+<li>AJAX 轮询</li>
+<li>html5 服务器推送事件<br><code>(new EventSource(SERVER_URL)).addEventListener(&quot;message&quot;, func);</code></li>
+<li>html5 Websocket<ul>
+<li><code>(new WebSocket(SERVER_URL)).addEventListener(&quot;message&quot;, func);</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>你怎么看待 Web App/hybrid App/Native App？（移动端前端 和 Web 前端区别？）</strong></p>
+<ul>
+<li><p>Web App(HTML5)：采用HTML5生存在浏览器中的应用，不需要下载安装</p>
+<ul>
+<li>优点：开发成本低，迭代更新容易，不需用户升级，跨多个平台和终端</li>
+<li>缺点：消息推送不够及时，支持图形和动画效果较差，功能使用限制（相机、GPS等）</li>
+</ul>
+<ul>
+<li>Hybrid App(混合开发)：UI WebView，需要下载安装<ul>
+<li>优点：接近 Native App 的体验，部分支持离线功能</li>
+<li>缺点：性能速度较慢，未知的部署时间，受限于技术尚不成熟</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Native App(原生开发)：依托于操作系统，有很强的交互，需要用户下载安装使用</p>
+<ul>
+<li>优点：用户体验完美，支持离线工作，可访问本地资源（通讯录，相册）</li>
+<li>缺点：开发成本高（多系统），开发成本高（版本更新），需要应用商店的审核</li>
+</ul>
+</li>
+</ul>
+<p><strong>Web 前端开发的注意事项？</strong></p>
+<ul>
+<li>特别设置 meta 标签 viewport</li>
+<li>百分比布局宽度，结合 box-sizing: border-box;</li>
+<li>使用 rem 作为计算单位。rem 只参照跟节点 html 的字体大小计算</li>
+<li>使用 css3 新特性。弹性盒模型、多列布局、媒体查询等</li>
+<li>多机型、多尺寸、多系统覆盖测试</li>
+</ul>
+<p><strong>在设计 Web APP 时，应当遵循以下几点</strong></p>
+<ul>
+<li>简化不重要的动画/动效/图形文字样式</li>
+<li>少用手势，避免与浏览器手势冲突</li>
+<li>减少页面内容，页面跳转次数，尽量在当前页面显示</li>
+<li>增强 Loading 趣味性，增强页面主次关系</li>
+</ul>
+<p><strong>平时如何管理你的项目？</strong></p>
+<ul>
+<li>规定全局样式、公共脚本</li>
+<li>严格要求代码注释(html/js/css)</li>
+<li>严格要求静态资源存放路径</li>
+<li>Git 提交必须填写说明</li>
+</ul>
+<p><strong>如何设计突发大规模并发架构？</strong></p>
+<ul>
+<li>及时响应(NoSQL缓存)</li>
+<li>数据安全(数据备份)</li>
+<li>负载均衡</li>
+</ul>
+<p><strong>说说最近最流行的一些东西吧？</strong></p>
+<ul>
+<li>ES6、Node、React、Webpack</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://adminlly.github.io/2017/09/20/other/" data-title="李刘玉的博客" data-tsina="" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/09/20/PS/" title="">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/09/20/Modules/"  title="">
+ <strong>NEXT:</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/Css/" title="Css">Css<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Hexo教程/" title="Hexo教程">Hexo教程<sup>1</sup></a></li>
+		
+			<li><a href="/categories/git/" title="git">git<sup>1</sup></a></li>
+		
+			<li><a href="/categories/github/" title="github">github<sup>2</sup></a></li>
+		
+			<li><a href="/categories/php/" title="php">php<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css3/" title="css3">css3<sup>1</sup></a></li>
+		
+			<li><a href="/tags/es6/" title="es6">es6<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+		
+			<li><a href="/tags/github/" title="github">github<sup>3</sup></a></li>
+		
+			<li><a href="/tags/php/" title="php">php<sup>1</sup></a></li>
+		
+			<li><a href="/tags/react-js/" title="react.js">react.js<sup>1</sup></a></li>
+		
+			<li><a href="/tags/服务器/" title="服务器">服务器<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://adminlly.github.io" target="_blank" title="李刘玉">李刘玉</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

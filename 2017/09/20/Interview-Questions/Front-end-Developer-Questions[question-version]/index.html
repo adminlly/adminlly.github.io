@@ -1,0 +1,719 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>李刘玉的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="李刘玉">
+    
+    <meta name="description" content="HTML
+
+Doctype作用？严格模式与混杂模式如何区分？它们有何意义?
+HTML5 为什么只需要写 &amp;lt;!DOCTYPE HTML&amp;gt;？
+行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
+页面导入样式时，使用link和@import有什么区别？
+介绍一下你对浏览器内核的理解？">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="李刘玉的博客" title="李刘玉的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="李刘玉的博客">李刘玉的博客</a></h1>
+				<h2 class="blog-motto">胆小认生，踏实认真</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">档案</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:adminlly.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/09/20/Interview-Questions/Front-end-Developer-Questions[question-version]/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://adminlly.github.io" title="李刘玉">李刘玉</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-09-20T11:04:14.941Z" itemprop="datePublished">2017-09-20</time>
+    更新日期:<time datetime="2017-09-20T11:00:54.947Z" itemprop="dateModified">2017-09-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML"><span class="toc-number">1.</span> <span class="toc-text">HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">2.</span> <span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript"><span class="toc-number">3.</span> <span class="toc-text">JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他问题"><span class="toc-number">4.</span> <span class="toc-text">其他问题</span></a></li></ol>
+		</div>
+		
+		<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><hr>
+<ul>
+<li>Doctype作用？严格模式与混杂模式如何区分？它们有何意义?</li>
+<li>HTML5 为什么只需要写 &lt;!DOCTYPE HTML&gt;？</li>
+<li>行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</li>
+<li>页面导入样式时，使用link和@import有什么区别？</li>
+<li>介绍一下你对浏览器内核的理解？</li>
+<li>常见的浏览器内核有哪些？</li>
+<li>html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？</li>
+<li>简述一下你对HTML语义化的理解？</li>
+<li>HTML5的离线储存怎么使用，工作原理能不能解释一下？</li>
+<li>浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？</li>
+<li>请描述一下 cookies，sessionStorage 和 localStorage 的区别？</li>
+<li>iframe有那些缺点？</li>
+<li>Label的作用是什么？是怎么用的？（加 for 或 包裹）</li>
+<li>HTML5的form如何关闭自动完成功能？</li>
+<li>如何实现浏览器内多个标签页之间的通信? (阿里)</li>
+<li>webSocket如何兼容低浏览器？(阿里)</li>
+<li>页面可见性（Page Visibility）API 可以有哪些用途？</li>
+<li>如何在页面上实现一个圆形的可点击区域？</li>
+<li>实现不使用 border 画出1px高的线，在不同浏览器的Quirksmode和CSSCompat模式下都能保持同一效果。</li>
+<li>网页验证码是干嘛的，是为了解决什么安全问题？</li>
+<li>tite与h1的区别、b与strong的区别、i与em的区别？</li>
+</ul>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><hr>
+<ul>
+<li><p>介绍一下标准的CSS的盒子模型？与低版本IE的盒子模型有什么不同的？</p>
+</li>
+<li><p>CSS选择符有哪些？哪些属性可以继承？</p>
+</li>
+<li><p>CSS优先级算法如何计算？</p>
+</li>
+<li><p>CSS3新增伪类有那些？</p>
+</li>
+<li><p>如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？</p>
+</li>
+<li><p>display有哪些值？说明他们的作用。</p>
+</li>
+<li><p>position的值relative和absolute定位原点是？</p>
+</li>
+<li><p>CSS3有哪些新特性？</p>
+</li>
+<li><p>请解释一下CSS3的Flexbox（弹性盒布局模型）,以及适用场景？</p>
+</li>
+<li><p>用纯CSS创建一个三角形的原理是什么？</p>
+</li>
+<li><p>一个满屏 品 字布局 如何设计?</p>
+</li>
+<li><p>常见兼容性问题？</p>
+</li>
+<li><p>li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</p>
+</li>
+<li><p>经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧 ？</p>
+</li>
+<li><p>为什么要初始化CSS样式。</p>
+</li>
+<li><p>absolute的containing block计算方式跟正常流有什么不同？</p>
+</li>
+<li><p>CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？</p>
+</li>
+<li><p>position跟display、margin collapse、overflow、float这些特性相互叠加后会怎么样？</p>
+</li>
+<li><p>对BFC规范(块级格式化上下文：block formatting context)的理解？</p>
+</li>
+<li><p>CSS权重优先级是如何计算的？</p>
+</li>
+<li><p>请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式</p>
+</li>
+<li><p>移动端的布局用过媒体查询吗？</p>
+</li>
+<li><p>使用 CSS 预处理器吗？喜欢那个？</p>
+</li>
+<li><p>CSS优化、提高性能的方法有哪些？</p>
+</li>
+<li><p>浏览器是怎样解析CSS选择器的？</p>
+</li>
+<li><p>在网页中的应该使用奇数还是偶数的字体？为什么呢？</p>
+</li>
+<li><p>margin和padding分别适合什么场景使用？</p>
+</li>
+<li><p>抽离样式模块怎么写，说出思路，有无实践经验？[阿里航旅的面试题]</p>
+</li>
+<li><p>元素竖向的百分比设定是相对于容器的高度吗？</p>
+</li>
+<li><p>全屏滚动的原理是什么？用到了CSS的那些属性？</p>
+</li>
+<li><p>什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？</p>
+</li>
+<li><p>视差滚动效果，如何给每页做不同的动画？（回到顶部，向下滑动要再次出现，和只出现一次分别怎么做？）</p>
+</li>
+<li><p>::before 和 :after中双冒号和单冒号 有什么区别？解释一下这2个伪元素的作用。</p>
+</li>
+<li><p>如何修改chrome记住密码后自动填充表单的黄色背景 ？</p>
+</li>
+<li><p>你对line-height是如何理解的？</p>
+</li>
+<li><p>设置元素浮动后，该元素的display值是多少？（自动变成display:block）</p>
+</li>
+<li><p>怎么让Chrome支持小于12px 的文字？</p>
+</li>
+<li><p>让页面里的字体变清晰，变细用CSS怎么做？（-webkit-font-smoothing: antialiased;）</p>
+</li>
+<li><p>font-style属性可以让它赋值为“oblique” oblique是什么意思？</p>
+</li>
+<li><p>position:fixed;在android下无效怎么处理？</p>
+</li>
+<li><p>如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）</p>
+</li>
+<li><p>display:inline-block 什么时候会显示间隙？(携程)</p>
+</li>
+<li><p>overflow: scroll时不能平滑滚动的问题怎么处理？</p>
+</li>
+<li><p>有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。</p>
+</li>
+<li><p>png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？</p>
+</li>
+<li><p>什么是Cookie 隔离？（或者说：请求资源的时候不要让它带cookie怎么做）</p>
+</li>
+<li><p>style标签写在body后与body前有什么区别？</p>
+</li>
+</ul>
+<h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><hr>
+<ul>
+<li><p>介绍JavaScript的基本数据类型。</p>
+</li>
+<li><p>说说写JavaScript的基本规范？</p>
+</li>
+<li><p>JavaScript原型，原型链 ? 有什么特点？</p>
+</li>
+<li><p>JavaScript有几种类型的值？（堆：原始数据类型和 栈：引用数据类型），你能画一下他们的内存图吗？</p>
+</li>
+<li><p>Javascript如何实现继承？</p>
+</li>
+<li><p>Javascript创建对象的几种方式？</p>
+</li>
+<li><p>Javascript作用链域?</p>
+</li>
+<li><p>谈谈This对象的理解。</p>
+</li>
+<li><p>eval是做什么的？</p>
+</li>
+<li><p>什么是window对象? 什么是document对象?</p>
+</li>
+<li><p>null，undefined的区别？</p>
+</li>
+<li><p>写一个通用的事件侦听器函数(机试题)。</p>
+</li>
+<li><p>[“1”, “2”, “3”].map(parseInt) 答案是多少？</p>
+</li>
+<li><p>关于事件，IE与火狐的事件机制有什么区别？ 如何阻止冒泡？</p>
+</li>
+<li><p>什么是闭包（closure），为什么要用它？</p>
+</li>
+<li><p>javascript 代码中的”use strict”;是什么意思 ? 使用它区别是什么？</p>
+</li>
+<li><p>如何判断一个对象是否属于某个类？</p>
+</li>
+<li><p>new操作符具体干了什么呢?</p>
+</li>
+<li><p>用原生JavaScript的实现过什么功能吗？</p>
+</li>
+<li><p>Javascript中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？</p>
+</li>
+<li><p>对JSON的了解？</p>
+</li>
+<li><p>[].forEach.call($$(“<em>“),function(a){ a.style.outline=”1px solid #”+(~~(Math.random()</em>(1&lt;&lt;24))).toString(16) }) - 能解释一下这段代码的意思吗？</p>
+</li>
+<li><p>js延迟加载的方式有哪些？</p>
+</li>
+<li><p>Ajax 是什么? 如何创建一个Ajax？</p>
+</li>
+<li><p>同步和异步的区别?</p>
+</li>
+<li><p>如何解决跨域问题?</p>
+</li>
+<li><p>页面编码和被请求的资源编码如果不一致如何处理？</p>
+</li>
+<li><p>模块化开发怎么做？</p>
+</li>
+<li><p>AMD（Modules/Asynchronous-Definition）、CMD（Common Module Definition）规范区别？</p>
+</li>
+<li><p>requireJS的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何 缓存的？）</p>
+</li>
+<li><p>让你自己设计实现一个requireJS，你会怎么做？</p>
+</li>
+<li><p>谈一谈你对ECMAScript6的了解？</p>
+</li>
+<li><p>ECMAScript6 怎么写class么，为什么会出现class这种东西?</p>
+</li>
+<li><p>异步加载的方式有哪些？</p>
+</li>
+<li><p>documen.write和 innerHTML的区别?</p>
+</li>
+<li><p>DOM操作——怎样添加、移除、移动、复制、创建和查找节点?</p>
+</li>
+<li><p>.call() 和 .apply() 的含义和区别？</p>
+</li>
+<li><p>数组和对象有哪些原生方法，列举一下？</p>
+</li>
+<li><p>JS 怎么实现一个类。怎么实例化这个类</p>
+</li>
+<li><p>JavaScript中的作用域与变量声明提升？</p>
+</li>
+<li><p>如何编写高性能的Javascript？</p>
+</li>
+<li><p>那些操作会造成内存泄漏？</p>
+</li>
+<li><p>JQuery的源码看过吗？能不能简单概况一下它的实现原理？</p>
+</li>
+<li><p>jQuery.fn的init方法返回的this指的是什么对象？为什么要返回this？</p>
+</li>
+<li><p>jquery中如何将数组转化为json字符串，然后再转化回来？</p>
+</li>
+<li><p>jQuery 的属性拷贝(extend)的实现原理是什么，如何实现深拷贝？</p>
+</li>
+<li><p>jquery.extend 与 jquery.fn.extend的区别？</p>
+</li>
+<li><p>jQuery 的队列是如何实现的？队列可以用在哪些地方？</p>
+</li>
+<li><p>谈一下Jquery中的bind(),live(),delegate(),on()的区别？</p>
+</li>
+<li><p>JQuery一个对象可以同时绑定多个事件，这是如何实现的？</p>
+</li>
+<li><p>是否知道自定义事件。jQuery里的fire函数是什么意思，什么时候用？</p>
+</li>
+<li><p>jQuery 是通过哪个方法和 Sizzle 选择器结合的？（jQuery.fn.find()进入Sizzle）</p>
+</li>
+<li><p>针对 jQuery性能的优化方法？</p>
+</li>
+<li><p>Jquery与jQuery UI有啥区别？</p>
+</li>
+<li><p>JQuery的源码看过吗？能不能简单说一下它的实现原理？</p>
+</li>
+<li><p>jquery 中如何将数组转化为json字符串，然后再转化回来？</p>
+</li>
+<li><p>jQuery和Zepto的区别？各自的使用场景？</p>
+</li>
+<li><p>针对 jQuery 的优化方法？</p>
+</li>
+<li><p>Zepto的点透问题如何解决？</p>
+</li>
+<li><p>jQueryUI如何自定义组件?</p>
+</li>
+<li><p>需求：实现一个页面操作不会整页刷新的网站，并且能在浏览器前进、后退时正确响应。给出你的技术实现方案？</p>
+</li>
+<li><p>如何判断当前脚本运行在浏览器还是node环境中？（阿里）</p>
+</li>
+<li><p>移动端最小触控区域是多大？</p>
+</li>
+<li><p>jQuery 的 slideUp动画 ，如果目标元素是被外部事件驱动, 当鼠标快速地连续触发外部元素事件, 动画会滞后的反复执行，该如何处理呢?</p>
+</li>
+<li><p>把 Script 标签 放在页面的最底部的body封闭之前 和封闭之后有什么区别？浏览器会如何解析它们？</p>
+</li>
+<li><p>移动端的点击事件的有延迟，时间是多久，为什么会有？ 怎么解决这个延时？（click 有 300ms 延迟,为了实现safari的双击事件的设计，浏览器要知道你是不是要双击操作。）</p>
+</li>
+<li><p>知道各种JS框架(Angular, Backbone, Ember, React, Meteor, Knockout…)么? 能讲出他们各自的优点和缺点么?</p>
+</li>
+<li><p>Underscore 对哪些 JS 原生对象进行了扩展以及提供了哪些好用的函数方法？</p>
+</li>
+<li><p>解释JavaScript中的作用域与变量声明提升？</p>
+</li>
+<li><p>那些操作会造成内存泄漏？</p>
+</li>
+<li><p>JQuery一个对象可以同时绑定多个事件，这是如何实现的？</p>
+</li>
+<li><p>Node.js的适用场景？</p>
+</li>
+<li><p>(如果会用node)知道route, middleware, cluster, nodemon, pm2, server-side rendering么?</p>
+</li>
+<li><p>解释一下 Backbone 的 MVC 实现方式？</p>
+</li>
+<li><p>什么是“前端路由”?什么时候适合使用“前端路由”? “前端路由”有哪些优点和缺点?</p>
+</li>
+<li><p>知道什么是webkit么? 知道怎么用浏览器的各种工具来调试和debug代码么?</p>
+</li>
+<li><p>如何测试前端代码么? 知道BDD, TDD, Unit Test么? - 知道怎么测试你的前端工程么(mocha, sinon, jasmin, qUnit..)?</p>
+</li>
+<li><p>前端templating(Mustache, underscore, handlebars)是干嘛的, 怎么用?</p>
+</li>
+<li><p>简述一下 Handlebars 的基本用法？</p>
+</li>
+<li><p>简述一下 Handlerbars 的对模板的基本处理流程， 如何编译的？如何缓存的？</p>
+</li>
+<li><p>用js实现千位分隔符?(来源：前端农民工，提示：正则+replace)</p>
+</li>
+<li><p>检测浏览器版本版本有哪些方式？</p>
+</li>
+<li><p>我们给一个dom同时绑定两个点击事件，一个用捕获，一个用冒泡，你来说下会执行几次事件，然后会先执行冒泡还是捕获]</p>
+</li>
+</ul>
+<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><hr>
+<ul>
+<li><p>原来公司工作流程是怎么样的，如何与其他人协作的？如何夸部门合作的？</p>
+</li>
+<li><p>你遇到过比较难的技术问题是？你是如何解决的？</p>
+</li>
+<li><p>设计模式 知道什么是singleton, factory, strategy, decrator么?</p>
+</li>
+<li><p>常使用的库有哪些？常用的前端开发工具？开发过什么应用或组件？</p>
+</li>
+<li><p>页面重构怎么操作？</p>
+</li>
+<li><p>列举IE与其他浏览器不一样的特性？</p>
+</li>
+<li><p>99%的网站都需要被重构是那本书上写的？</p>
+</li>
+<li><p>什么叫优雅降级和渐进增强？</p>
+</li>
+<li><p>是否了解公钥加密和私钥加密。</p>
+</li>
+<li><p>WEB应用从服务器主动推送Data到客户端有那些方式？</p>
+</li>
+<li><p>对Node的优点和缺点提出了自己的看法？</p>
+</li>
+<li><p>你有用过哪些前端性能优化的方法？</p>
+</li>
+<li><p>http状态码有那些？分别代表是什么意思？</p>
+</li>
+<li><p>一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？（流程说的越详细越好）</p>
+</li>
+<li><p>部分地区用户反应网站很卡，请问有哪些可能性的原因，以及解决方法？</p>
+</li>
+<li><p>从打开app到刷新出内容，整个过程中都发生了什么，如果感觉慢，怎么定位问题，怎么解决?</p>
+</li>
+<li><p>除了前端以外还了解什么其它技术么？你最最厉害的技能是什么？</p>
+</li>
+<li><p>你用的得心应手用的熟练地编辑器&amp;开发环境是什么样子？</p>
+</li>
+<li><p>对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？</p>
+</li>
+<li><p>你怎么看待Web App 、hybrid App、Native App？</p>
+</li>
+<li><p>你移动端前端开发的理解？（和 Web 前端开发的主要区别是什么？）</p>
+</li>
+<li><p>你对加班的看法？</p>
+</li>
+<li><p>平时如何管理你的项目？</p>
+</li>
+<li><p>说说最近最流行的一些东西吧？常去哪些网站？</p>
+</li>
+<li><p>如何设计突发大规模并发架构？</p>
+</li>
+<li><p>说说最近最流行的一些东西吧？常去哪些网站？</p>
+</li>
+<li><p>是否了解开源的工具 bower、npm、yeoman、grunt、gulp，一个 npm 的包里的 package.json 具备的必要的字段都有哪些？（名称、版本号，依赖）</p>
+</li>
+<li><p>每个模块的代码结构都应该比较简单，且每个模块之间的关系也应该非常清晰，随着功能和迭代次数越来越多，你会如何去保持这个状态的？</p>
+</li>
+<li><p>Git知道branch, diff, merge么?</p>
+</li>
+<li><p>如何设计突发大规模并发架构？</p>
+</li>
+<li><p>当团队人手不足，把功能代码写完已经需要加班的情况下，你会做前端代码的测试吗？</p>
+</li>
+<li><p>说说最近最流行的一些东西吧？平时常去哪些网站？</p>
+</li>
+<li><p>知道什么是SEO并且怎么优化么? 知道各种meta data的含义么?</p>
+</li>
+<li><p>移动端（Android IOS）怎么做好用户体验?</p>
+</li>
+<li><p>简单描述一下你做过的移动APP项目研发流程？</p>
+</li>
+<li><p>你在现在的团队处于什么样的角色，起到了什么明显的作用？</p>
+</li>
+<li><p>你认为怎样才是全端工程师（Full Stack developer）？</p>
+</li>
+<li><p>介绍一个你最得意的作品吧？</p>
+</li>
+<li><p>你有自己的技术博客吗，用了哪些技术？</p>
+</li>
+<li><p>对前端安全有什么看法？</p>
+</li>
+<li><p>是否了解Web注入攻击，说下原理，最常见的两种攻击（XSS 和 CSRF）了解到什么程度？</p>
+</li>
+<li><p>项目中遇到国哪些印象深刻的技术难题，具体是什么问题，怎么解决？。</p>
+</li>
+<li><p>最近在学什么东西？</p>
+</li>
+<li><p>你的优点是什么？缺点是什么？</p>
+</li>
+<li><p>如何管理前端团队?</p>
+</li>
+<li><p>最近在学什么？能谈谈你未来3，5年给自己的规划吗？</p>
+</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://adminlly.github.io/2017/09/20/Interview-Questions/Front-end-Developer-Questions[question-version]/" data-title="李刘玉的博客" data-tsina="" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/09/20/Ajax/" title="">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/09/20/Interview-Questions/Front-end-Developer-Questions[question-and-answer-version]/"  title="">
+ <strong>NEXT:</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML"><span class="toc-number">1.</span> <span class="toc-text">HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">2.</span> <span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript"><span class="toc-number">3.</span> <span class="toc-text">JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他问题"><span class="toc-number">4.</span> <span class="toc-text">其他问题</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/Css/" title="Css">Css<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Hexo教程/" title="Hexo教程">Hexo教程<sup>1</sup></a></li>
+		
+			<li><a href="/categories/git/" title="git">git<sup>1</sup></a></li>
+		
+			<li><a href="/categories/github/" title="github">github<sup>2</sup></a></li>
+		
+			<li><a href="/categories/php/" title="php">php<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css3/" title="css3">css3<sup>1</sup></a></li>
+		
+			<li><a href="/tags/es6/" title="es6">es6<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+		
+			<li><a href="/tags/github/" title="github">github<sup>3</sup></a></li>
+		
+			<li><a href="/tags/php/" title="php">php<sup>1</sup></a></li>
+		
+			<li><a href="/tags/react-js/" title="react.js">react.js<sup>1</sup></a></li>
+		
+			<li><a href="/tags/服务器/" title="服务器">服务器<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://adminlly.github.io" target="_blank" title="李刘玉">李刘玉</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
