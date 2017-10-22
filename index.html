@@ -36,7 +36,7 @@
 				<h1 class="site-name"><a href="/" title="李刘玉的博客">李刘玉的博客</a></h1>
 				<h2 class="blog-motto">胆小认生，踏实认真</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -51,7 +51,7 @@
 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:adminlly.github.io">
 					</form>
 					
@@ -66,17 +66,22 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2017/09/20/SEO/" title="" itemprop="url">
+    <a href="/2017/09/20/performance-optimization/" title="" itemprop="url">
   
     <h1 itemprop="name"></h1>
     
      
-           <p itemprop="description" >前端需要注意哪些SEO
+           <p itemprop="description" >性能优化
+如何进行网站性能优化
 
-合理的title、description、keywords：搜索对着三项的权重逐个减小，title值强调重点即可，重要关键词出现不要超过2次，而且要靠前，不同页面title要有所不同；description把页面内容高度概括，长度合适，不可过分堆砌关键词</p>
+content方面
+
+减少HTTP请求：合并文件、CSS精灵、inline Image
+减少DNS查询：DNS查询完成之前浏览器不能从这个主机下载任何任何文件。方法：DNS缓存、将资源分布到恰当数量的主机名，平衡并行下载和DNS查询
+避免重定向：</p>
         
     
-    <time datetime="2017-09-20T11:04:14.986Z" itemprop="datePublished">2017-09-20</time>
+    <time datetime="2017-09-20T11:04:14.981Z" itemprop="datePublished">2017-09-20</time>
   </a>
 </section>
 
@@ -111,27 +116,6 @@ JPEG：
 PNG：
 
 有PNG8和truecolor PNG</p>
-        
-    
-    <time datetime="2017-09-20T11:04:14.981Z" itemprop="datePublished">2017-09-20</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/09/20/performance-optimization/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >性能优化
-如何进行网站性能优化
-
-content方面
-
-减少HTTP请求：合并文件、CSS精灵、inline Image
-减少DNS查询：DNS查询完成之前浏览器不能从这个主机下载任何任何文件。方法：DNS缓存、将资源分布到恰当数量的主机名，平衡并行下载和DNS查询
-避免重定向：</p>
         
     
     <time datetime="2017-09-20T11:04:14.981Z" itemprop="datePublished">2017-09-20</time>
@@ -175,33 +159,6 @@ AMD推荐的风格通过返回一个对象做为模块</p>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2017/09/20/MVC/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >说说你对MVC和MVVM的理解
-
-MVC
-
-View 传送指令到 Controller
-
-Controller 完成业务逻辑后，要求 Model 改变状态
-
-Model 将新的数据发送到 View，用户得到反馈
-
-
-
-
-所有通信都是单向的</p>
-        
-    
-    <time datetime="2017-09-20T11:04:14.976Z" itemprop="datePublished">2017-09-20</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
     <a href="/2017/09/20/mobile-terminal/" title="" itemprop="url">
   
     <h1 itemprop="name"></h1>
@@ -227,18 +184,52 @@ Model 将新的数据发送到 View，用户得到反馈
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2017/09/20/localStorage/" title="" itemprop="url">
+    <a href="/2017/09/20/jQuery/" title="" itemprop="url">
   
     <h1 itemprop="name"></h1>
     
      
-           <p itemprop="description" >浏览器本地存储
+           <p itemprop="description" >你觉得jQuery或zepto源码有哪些写的好的地方
 
-在较高版本的浏览器中，js提供了sessionStorage和globalStorage。在HTML5中提供了localStorage来取代globalStorage
-html5中的Web Storage包括了两种存储方式：sessionStorage和loca</p>
+jquery源码封装在一个匿名函数的自执行环境中，有助于防止变量的全局污染，然后通过传入window对象参数，可以使window对象作为局部变量使用，好处是当jquery中访问window对象的时候，就不用将作用域链退回到顶</p>
         
     
-    <time datetime="2017-09-20T11:04:14.971Z" itemprop="datePublished">2017-09-20</time>
+    <time datetime="2017-09-20T11:04:14.968Z" itemprop="datePublished">2017-09-20</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2017/09/20/JavaScript/" title="" itemprop="url">
+  
+    <h1 itemprop="name"></h1>
+    
+     
+           <p itemprop="description" >JavaScript
+JavaScript的组成
+
+JavaScript 由以下三部分组成：
+ECMAScript（核心）：JavaScript 语言基础
+DOM（文档对象模型）：规定了访问HTML和XML的接口
+BOM（浏览器对象模型）：提供了浏览器窗口之间进行交互的对象和方法</p>
+        
+    
+    <time datetime="2017-09-20T11:04:14.966Z" itemprop="datePublished">2017-09-20</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2017/09/20/HTTP/" title="" itemprop="url">
+  
+    <h1 itemprop="name"></h1>
+    
+     
+           <p itemprop="description" >http状态码有那些？分别代表是什么意思？
+12345678910111213141516171819简单版   [       100  Continue   继续，一般在发送post请求时，已发送了http header之后服务端将返回此信息，表示确认，之后发送具体参数信息 </p>
+        
+    
+    <time datetime="2017-09-20T11:04:14.963Z" itemprop="datePublished">2017-09-20</time>
   </a>
 </section>
 
@@ -248,20 +239,30 @@ html5中的Web Storage包括了两种存储方式：sessionStorage和loca</p>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分類</p>
 		<ul>
+		
+			<li><a href="/categories/Cookie/" title="Cookie">Cookie<sup>1</sup></a></li>
 		
 			<li><a href="/categories/Css/" title="Css">Css<sup>1</sup></a></li>
 		
 			<li><a href="/categories/Hexo教程/" title="Hexo教程">Hexo教程<sup>1</sup></a></li>
+		
+			<li><a href="/categories/JSON/" title="JSON">JSON<sup>2</sup></a></li>
+		
+			<li><a href="/categories/MVC/" title="MVC">MVC<sup>1</sup></a></li>
+		
+			<li><a href="/categories/SEO/" title="SEO">SEO<sup>1</sup></a></li>
+		
+			<li><a href="/categories/ajax/" title="ajax">ajax<sup>1</sup></a></li>
 		
 			<li><a href="/categories/git/" title="git">git<sup>1</sup></a></li>
 		
@@ -275,8 +276,12 @@ html5中的Web Storage包括了两种存储方式：sessionStorage和loca</p>
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">標簽</p>
 		<ul class="clearfix">
+		
+			<li><a href="/tags/SEO/" title="SEO">SEO<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
 		
 			<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
 		
@@ -299,7 +304,7 @@ html5中的Web Storage包括了两种存储方式：sessionStorage和loca</p>
 
 
   <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS</a>
+	<a href="" target="_blank" title="rss">RSS 訂閱</a>
 </div>
 
 </aside>
