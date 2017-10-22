@@ -36,7 +36,7 @@
 				<h1 class="site-name"><a href="/" title="李刘玉的博客">李刘玉的博客</a></h1>
 				<h2 class="blog-motto">胆小认生，踏实认真</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -63,27 +63,6 @@
     </header>
     <div id="container">
       <div id="main">
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/09/20/performance-optimization/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >性能优化
-如何进行网站性能优化
-
-content方面
-
-减少HTTP请求：合并文件、CSS精灵、inline Image
-减少DNS查询：DNS查询完成之前浏览器不能从这个主机下载任何任何文件。方法：DNS缓存、将资源分布到恰当数量的主机名，平衡并行下载和DNS查询
-避免重定向：</p>
-        
-    
-    <time datetime="2017-09-20T11:04:14.981Z" itemprop="datePublished">2017-09-20</time>
-  </a>
-</section>
 
   <section class="post" itemscope itemprop="blogPost">
   
@@ -142,64 +121,6 @@ Backbone的Model没</p>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2017/09/20/Modules/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >说说你对AMD和Commonjs的理解
-
-CommonJS是服务器端模块的规范，Node.js采用了这个规范。CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。AMD规范则是非同步加载模块，允许指定回调函数
-AMD推荐的风格通过返回一个对象做为模块</p>
-        
-    
-    <time datetime="2017-09-20T11:04:14.976Z" itemprop="datePublished">2017-09-20</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/09/20/mobile-terminal/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >移动端（Android、IOS）怎么做好用户体验?
-
-清晰的视觉纵线
-信息的分组、极致的减法
-利用选择代替输入
-标签及文字的排布方式
-依靠明文确认密码
-合理的键盘利用
-
-前端页面有哪三层构成，分别是什么？作用是什么？
-
-结构层：由 (X)HTML 标记语言负责，解决页面“内容是什</p>
-        
-    
-    <time datetime="2017-09-20T11:04:14.973Z" itemprop="datePublished">2017-09-20</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2017/09/20/jQuery/" title="" itemprop="url">
-  
-    <h1 itemprop="name"></h1>
-    
-     
-           <p itemprop="description" >你觉得jQuery或zepto源码有哪些写的好的地方
-
-jquery源码封装在一个匿名函数的自执行环境中，有助于防止变量的全局污染，然后通过传入window对象参数，可以使window对象作为局部变量使用，好处是当jquery中访问window对象的时候，就不用将作用域链退回到顶</p>
-        
-    
-    <time datetime="2017-09-20T11:04:14.968Z" itemprop="datePublished">2017-09-20</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
     <a href="/2017/09/20/JavaScript/" title="" itemprop="url">
   
     <h1 itemprop="name"></h1>
@@ -233,21 +154,95 @@ BOM（浏览器对象模型）：提供了浏览器窗口之间进行交互的�
   </a>
 </section>
 
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2017/09/20/HTML/" title="" itemprop="url">
+  
+    <h1 itemprop="name"></h1>
+    
+     
+           <p itemprop="description" >HTML
+语义化
+
+HTML标签的语义化是指：通过使用包含语义的标签（如h1-h6）恰当地表示文档结构
+css命名的语义化是指：为html标签添加有意义的class
+
+为什么需要语义化：
+
+去掉样式后页面呈现清晰的结构
+盲人使用读屏器更好地阅读
+搜索引擎更好地理解页面，有利于收录</p>
+        
+    
+    <time datetime="2017-09-20T11:04:14.961Z" itemprop="datePublished">2017-09-20</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2017/09/20/Git/" title="" itemprop="url">
+  
+    <h1 itemprop="name"></h1>
+    
+     
+           <p itemprop="description" >git fetch和git pull的区别
+
+git pull：相当于是从远程获取最新版本并merge到本地
+git fetch：相当于是从远程获取最新版本到本地，不会自动merge</p>
+        
+    
+    <time datetime="2017-09-20T11:04:14.958Z" itemprop="datePublished">2017-09-20</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2017/09/20/Handwritten-code/" title="" itemprop="url">
+  
+    <h1 itemprop="name"></h1>
+    
+     
+           <p itemprop="description" >手写事件侦听器，并要求兼容浏览器1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666</p>
+        
+    
+    <time datetime="2017-09-20T11:04:14.958Z" itemprop="datePublished">2017-09-20</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2017/09/20/Front-end-frame-relative/" title="" itemprop="url">
+  
+    <h1 itemprop="name"></h1>
+    
+     
+           <p itemprop="description" >什么是单页面应用(SPA)？
+
+单页面应用(SPA)是指用户在浏览器加载单一的HTML页面，后续请求都无需再离开此页
+目标：旨在用为用户提供了更接近本地移动APP或桌面应用程序的体验。
+
+流程：第一次请求时，将导航页传输到客户端，其余请求通过 REST API 获取 JSON 数</p>
+        
+    
+    <time datetime="2017-09-20T11:04:14.956Z" itemprop="datePublished">2017-09-20</time>
+  </a>
+</section>
+
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分類</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 			<li><a href="/categories/Cookie/" title="Cookie">Cookie<sup>1</sup></a></li>
@@ -268,7 +263,11 @@ BOM（浏览器对象模型）：提供了浏览器窗口之间进行交互的�
 		
 			<li><a href="/categories/github/" title="github">github<sup>2</sup></a></li>
 		
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		
 			<li><a href="/categories/php/" title="php">php<sup>1</sup></a></li>
+		
+			<li><a href="/categories/服务器端模块化/" title="服务器端模块化">服务器端模块化<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -276,10 +275,10 @@ BOM（浏览器对象模型）：提供了浏览器窗口之间进行交互的�
 
   
 <div class="tagslist">
-	<p class="asidetitle">標簽</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/SEO/" title="SEO">SEO<sup>1</sup></a></li>
+			<li><a href="/tags/SEO/" title="SEO">SEO<sup>2</sup></a></li>
 		
 			<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
 		
@@ -293,6 +292,8 @@ BOM（浏览器对象模型）：提供了浏览器窗口之间进行交互的�
 		
 			<li><a href="/tags/github/" title="github">github<sup>3</sup></a></li>
 		
+			<li><a href="/tags/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		
 			<li><a href="/tags/php/" title="php">php<sup>1</sup></a></li>
 		
 			<li><a href="/tags/react-js/" title="react.js">react.js<sup>1</sup></a></li>
@@ -304,7 +305,7 @@ BOM（浏览器对象模型）：提供了浏览器窗口之间进行交互的�
 
 
   <div class="rsspart">
-	<a href="" target="_blank" title="rss">RSS 訂閱</a>
+	<a href="" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
