@@ -1,0 +1,401 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>手写快排，去重，冒泡 | 李刘玉的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="李刘玉">
+    
+    <meta name="description" content="手写事件侦听器，并要求兼容浏览器123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869var e">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="李刘玉的博客" title="李刘玉的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="李刘玉的博客">李刘玉的博客</a></h1>
+				<h2 class="blog-motto">胆小认生，踏实认真</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">档案</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:adminlly.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/06/13/Handwritten-code/" title="手写快排，去重，冒泡" itemprop="url">手写快排，去重，冒泡</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://adminlly.github.io" title="李刘玉">李刘玉</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-06-12T16:00:00.000Z" itemprop="datePublished">2016-06-13</time>
+    Updated:<time datetime="2017-10-26T14:49:22.949Z" itemprop="dateModified">2017-10-26</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+		</div>
+		
+		<p><strong>手写事件侦听器，并要求兼容浏览器</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> eventUtil = &#123;</div><div class="line">  getEvent: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> event || <span class="built_in">window</span>.event;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  getTarget: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> event.target || event.srcElement;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  addListener: <span class="function"><span class="keyword">function</span>(<span class="params">element, type, hander</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (element.addEventListener) &#123;</div><div class="line">          element.addEventListener(type, hander, <span class="literal">false</span>);</div><div class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) &#123;</div><div class="line">          element.attachEvent(<span class="string">'on'</span> + type, hander);</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">          element[<span class="string">'on'</span> + type] = hander;</div><div class="line">      &#125;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  removeListener: <span class="function"><span class="keyword">function</span>(<span class="params">element, type, hander</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (element.removeEventListener) &#123;</div><div class="line">          element.removeEventListener(type, hander, <span class="literal">false</span>);</div><div class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.deattachEvent) &#123;</div><div class="line">          element.detachEvent(type, hander);</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">          element[<span class="string">'on'</span> + type] = <span class="literal">null</span>;</div><div class="line">      &#125;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  preventDefault: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (event.preventDefault) &#123;</div><div class="line">          event.preventDefault();</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">          event.returnValue = <span class="literal">false</span>;</div><div class="line">      &#125;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  stopPropagation: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (event.stopPropagation) &#123;</div><div class="line">          event.stopPropagation();</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">          event.cancelBubble = <span class="literal">true</span>;</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 调用</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"btn"</span>);</div><div class="line">  <span class="keyword">var</span> link = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"a"</span>)[<span class="number">0</span>];</div><div class="line"></div><div class="line">  eventUtil.addListener(btn, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> event = eventUtil.getEvent(event);</div><div class="line">      <span class="keyword">var</span> target = eventUtil.getTarget(event);</div><div class="line">      alert(event.type);</div><div class="line">      alert(target);</div><div class="line">      eventUtil.stopPropagation(event);</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  eventUtil.addListener(link, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">      alert(<span class="string">"prevent default event"</span>);</div><div class="line">      <span class="keyword">var</span> event = eventUtil.getEvent(event);</div><div class="line">      eventUtil.preventDefault(event);</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  eventUtil.addListener(<span class="built_in">document</span>.body, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      alert(<span class="string">"click body"</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+<p><strong>手写事件模型</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Event = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> list = &#123;&#125;, bind, trigger, remove;</div><div class="line">    bind = <span class="function"><span class="keyword">function</span> (<span class="params">key, fn</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!list[key]) &#123;</div><div class="line">            list[key] = [];</div><div class="line">        &#125;</div><div class="line">        list[key].push(fn);</div><div class="line">    &#125;;</div><div class="line">    trigger = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> key = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>);</div><div class="line">        <span class="keyword">var</span> fns = list[key];</div><div class="line">        <span class="keyword">if</span> (!fns || fns.length === <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, fn; fn = fns[i++];) &#123;</div><div class="line">            fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    remove = <span class="function"><span class="keyword">function</span> (<span class="params">key, fn</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> fns = list[key];</div><div class="line">        <span class="keyword">if</span> (!fns) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (!fn) &#123;</div><div class="line">            fns &amp; (fns.length = <span class="number">0</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = fns.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">                <span class="keyword">var</span> _fn = fns[i];</div><div class="line">                <span class="keyword">if</span> (_fn === fn) &#123;</div><div class="line">                    fns.splice(i, <span class="number">1</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        bind: bind,</div><div class="line">        trigger: trigger,</div><div class="line">        remove: remove</div><div class="line">    &#125;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line"><span class="comment">// 调用</span></div><div class="line">Event.bind(<span class="string">'Hit'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">'bind event'</span>); &#125;); <span class="comment">// 绑定事件</span></div><div class="line">Event.trigger(<span class="string">"Hit"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">'trigger event'</span>); &#125;); <span class="comment">// 触发事件</span></div></pre></td></tr></table></figure>
+<p><strong>手写事件代理，并要求兼容浏览器</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">delegateEvent</span>(<span class="params">parentEl, selector, type, fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> handler = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">          <span class="keyword">var</span> e = e || <span class="built_in">window</span>.event;</div><div class="line">          <span class="keyword">var</span> target = e.target || e.srcElement;</div><div class="line">          <span class="keyword">if</span> (matchSelector(target, selector)) &#123;</div><div class="line">              <span class="keyword">if</span>(fn) &#123;</div><div class="line">                  fn.call(target, e);</div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">if</span>(parentEl.addEventListener)&#123;</div><div class="line">        parentEl.addEventListener(type, handler);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        parentEl.attachEvent(<span class="string">"on"</span> + type, handler);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * support #id, tagName, .className</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">matchSelector</span>(<span class="params">ele, selector</span>) </span>&#123;</div><div class="line">    <span class="comment">// if use id</span></div><div class="line">    <span class="keyword">if</span> (selector.charAt(<span class="number">0</span>) === <span class="string">"#"</span>) &#123;</div><div class="line">        <span class="keyword">return</span> ele.id === selector.slice(<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// if use class</span></div><div class="line">    <span class="keyword">if</span> (selector.charAt(<span class="number">0</span>) === <span class="string">"."</span>) &#123;</div><div class="line">        <span class="keyword">return</span> (<span class="string">" "</span> + ele.className + <span class="string">" "</span>).indexOf(<span class="string">" "</span> + selector.slice(<span class="number">1</span>) + <span class="string">" "</span>) != <span class="number">-1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// if use tagName</span></div><div class="line">    <span class="keyword">return</span> ele.tagName.toLowerCase() === selector.toLowerCase();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 调用</span></div><div class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</div><div class="line">delegateEvent(box, <span class="string">"a"</span>, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.href);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><strong>手写事件触发器，并要求兼容浏览器</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fireEvent = <span class="function"><span class="keyword">function</span>(<span class="params">element, event</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.createEventObject)&#123;</div><div class="line">        <span class="keyword">var</span> mockEvent = <span class="built_in">document</span>.createEventObject();</div><div class="line">        <span class="keyword">return</span> element.fireEvent(<span class="string">'on'</span> + event, mockEvent)</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">var</span> mockEvent = <span class="built_in">document</span>.createEvent(<span class="string">'HTMLEvents'</span>);</div><div class="line">        mockEvent.initEvent(event, <span class="literal">true</span>, <span class="literal">true</span>);</div><div class="line">        <span class="keyword">return</span> element.dispatchEvent(mockEvent);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>手写 Function.bind 函数</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!<span class="built_in">Function</span>.prototype.bind) &#123;</div><div class="line">  <span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params">oThis</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>) &#123;</div><div class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"'this' is not function"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// bind's default arguments, array without first element</span></div><div class="line">    <span class="comment">// first part arguments for the function</span></div><div class="line">    <span class="keyword">var</span> aBindArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</div><div class="line">    <span class="keyword">var</span> fToBind = <span class="keyword">this</span>; <span class="comment">// the function will be binding</span></div><div class="line">    <span class="keyword">var</span> fNOP = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">    <span class="keyword">var</span> fBound = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">          <span class="comment">// target this will be binding</span></div><div class="line">          <span class="keyword">var</span> oThis = <span class="keyword">this</span> <span class="keyword">instanceof</span> fNOP ? <span class="keyword">this</span> : oThis || <span class="keyword">this</span>;</div><div class="line">          <span class="comment">// last part arguments for the function</span></div><div class="line">          <span class="keyword">var</span> aCallArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">          <span class="comment">// complete arguments for the function</span></div><div class="line">          <span class="keyword">var</span> aFuncArgs = aBindArgs.concat(aCallArgs);</div><div class="line">          <span class="keyword">return</span> fToBind.apply(oThis, aFuncArgs);</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// fBound extends fToBind</span></div><div class="line">    fNOP.prototype = <span class="keyword">this</span>.prototype;</div><div class="line">    fBound.prototype = <span class="keyword">new</span> fNOP();</div><div class="line"></div><div class="line">    <span class="keyword">return</span> fBound;</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 调用</span></div><div class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">a, b, c</span>)</span>&#123; <span class="keyword">return</span> a + b + c;&#125;;</div><div class="line"><span class="keyword">var</span> newAdd = add.bind(<span class="literal">null</span>, <span class="number">1</span>, <span class="number">2</span>);</div><div class="line"><span class="keyword">var</span> result = newAdd(<span class="number">3</span>);</div></pre></td></tr></table></figure>
+<p><strong>手写数组快速排序</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> quickSort = <span class="function"><span class="keyword">function</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) &#123; <span class="keyword">return</span> arr; &#125;</div><div class="line">    <span class="keyword">var</span> pivotIndex = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>);</div><div class="line">    <span class="keyword">var</span> pivot = arr.splice(pivotIndex, <span class="number">1</span>)[<span class="number">0</span>];</div><div class="line">    <span class="keyword">var</span> left = [];</div><div class="line">    <span class="keyword">var</span> right = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++)&#123;</div><div class="line">        <span class="keyword">if</span> (arr[i] &lt; pivot) &#123;</div><div class="line">          left.push(arr[i]);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">          right.push(arr[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> quickSort(left).concat([pivot], quickSort(right));</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 调用</span></div><div class="line">quickSort([<span class="number">9</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">7</span>]);</div></pre></td></tr></table></figure>
+<p><strong>手写数组冒泡排序</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> bubble = <span class="function"><span class="keyword">function</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> maxIndex = arr.length - <span class="number">1</span>, temp, flag;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = maxIndex; i &gt; <span class="number">0</span>; i--) &#123;</div><div class="line">        flag = <span class="literal">true</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</div><div class="line">                temp = arr[j];</div><div class="line">                arr[j] = arr[j + <span class="number">1</span>];</div><div class="line">                arr[j + <span class="number">1</span>] = temp;</div><div class="line">                flag = <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(! flag)&#123;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 调用</span></div><div class="line"><span class="keyword">var</span> arr = bubble([<span class="number">13</span>, <span class="number">69</span>, <span class="number">28</span>, <span class="number">93</span>, <span class="number">55</span>, <span class="number">75</span>, <span class="number">34</span>]);</div></pre></td></tr></table></figure>
+<p><strong>手写数组去重</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.prototype.unique = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> [...new <span class="built_in">Set</span>(<span class="keyword">this</span>)];&#125;;</div><div class="line"><span class="comment">// 调用</span></div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>].unique();</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique1</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> hash = &#123;&#125;, result = [];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>, len=arr.length; i&lt;len; i++)&#123;</div><div class="line">        <span class="keyword">if</span>(! hash[arr[i]])&#123;</div><div class="line">          result.push(arr[i]);</div><div class="line">          hash[arr[i]] = <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 调用</span></div><div class="line">unique1([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]);</div><div class="line"></div><div class="line"><span class="built_in">Array</span>.prototype.unique2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.sort();</div><div class="line">    <span class="keyword">var</span> result = [<span class="keyword">this</span>[<span class="number">0</span>]];</div><div class="line">    <span class="keyword">var</span> len = <span class="keyword">this</span>.length;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>[i] !== result[result.length - <span class="number">1</span>])&#123;</div><div class="line">          result.push(<span class="keyword">this</span>[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 调用</span></div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>].unique2();</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique3</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> result = [];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr.length; i++)&#123;</div><div class="line">        <span class="keyword">if</span>(result.indexOf(arr[i]) == <span class="number">-1</span>)&#123;</div><div class="line">          result.push(arr[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 调用</span></div><div class="line">unique3([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]);</div></pre></td></tr></table></figure>
+<p><strong>将url的查询参数解析成字典对象</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseQuery</span>(<span class="params">url</span>) </span>&#123;</div><div class="line">  url = url == <span class="literal">null</span> ? <span class="built_in">window</span>.location.href : url;</div><div class="line">  <span class="keyword">var</span> search = url.substring(url.lastIndexOf(<span class="string">"?"</span>) + <span class="number">1</span>);</div><div class="line">  <span class="keyword">var</span> hash = &#123;&#125;;</div><div class="line">  <span class="keyword">var</span> reg = <span class="regexp">/([^?&amp;=]+)=([^?&amp;=]*)/g</span>;</div><div class="line">  search.replace(reg, <span class="function"><span class="keyword">function</span> (<span class="params">match, $<span class="number">1</span>, $<span class="number">2</span></span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> name = <span class="built_in">decodeURIComponent</span>($<span class="number">1</span>);</div><div class="line">      <span class="keyword">var</span> val = <span class="built_in">decodeURIComponent</span>($<span class="number">2</span>);</div><div class="line">      hash[name] = <span class="built_in">String</span>(val);</div><div class="line">      <span class="keyword">return</span> match;</div><div class="line">  &#125;);</div><div class="line">  <span class="keyword">return</span> hash;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>封装函数节流函数</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> throttle = <span class="function"><span class="keyword">function</span>(<span class="params">fn, delay, mustRunDelay</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> timer = <span class="literal">null</span>;</div><div class="line">  <span class="keyword">var</span> t_start;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> context = <span class="keyword">this</span>, args = <span class="built_in">arguments</span>, t_curr = +<span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    clearTimeout(timer);</div><div class="line">    <span class="keyword">if</span>(!t_start)&#123;</div><div class="line">      t_start = t_curr;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(t_curr - t_start &gt;= mustRunDelay)&#123;</div><div class="line">      fn.apply(context, args);</div><div class="line">      t_start = t_curr;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        fn.apply(context, args);</div><div class="line">      &#125;, delay);</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 调用（两次间隔50ms内连续触发不执行，但每累计100ms至少执行一次</span></div><div class="line"><span class="built_in">window</span>.onresize = throttle(myFunc, <span class="number">50</span>, <span class="number">100</span>);</div><div class="line"><span class="string">`</span></div></pre></td></tr></table></figure>
+<p><strong>用JS实现千位分隔符</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> str = (+ num) + <span class="string">''</span>;</div><div class="line">  <span class="keyword">var</span> len = str.length;</div><div class="line">  <span class="keyword">if</span>(len &lt;= <span class="number">3</span>) <span class="keyword">return</span> str;</div><div class="line">  num = <span class="string">''</span>;</div><div class="line">  <span class="keyword">while</span>(len &gt; <span class="number">3</span>)&#123;</div><div class="line">      len -= <span class="number">3</span>;</div><div class="line">      num = <span class="string">','</span> + str.substr(len, <span class="number">3</span>) + num;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> str.substr(<span class="number">0</span>, len) + num;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">  <span class="comment">// ?= 正向匹配:匹配位置</span></div><div class="line">  <span class="comment">// ?! 正向不匹配:排除位置</span></div><div class="line">  <span class="keyword">var</span> str = (+num).toString();</div><div class="line">  <span class="keyword">var</span> reg = <span class="regexp">/(?=(?!\b)(\d&#123;3&#125;)+$)/g</span>;</div><div class="line">  <span class="keyword">return</span> str.replace(reg, <span class="string">','</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://adminlly.github.io/2016/06/13/Handwritten-code/" data-title="手写快排，去重，冒泡 | 李刘玉的博客" data-tsina="" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/07/11/jQuery/" title="jQuery的优点">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  jQuery的优点</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/06/13/HTML/"  title="HTML规则">
+ <strong>NEXT:</strong><br/> 
+ <span>HTML规则
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+			<li><a href="/categories/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Cookie/" title="Cookie">Cookie<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Css/" title="Css">Css<sup>1</sup></a></li>
+		
+			<li><a href="/categories/ES6/" title="ES6">ES6<sup>1</sup></a></li>
+		
+			<li><a href="/categories/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+		
+			<li><a href="/categories/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Hexo教程/" title="Hexo教程">Hexo教程<sup>1</sup></a></li>
+		
+			<li><a href="/categories/JSON/" title="JSON">JSON<sup>2</sup></a></li>
+		
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+		
+			<li><a href="/categories/MVC/" title="MVC">MVC<sup>1</sup></a></li>
+		
+			<li><a href="/categories/PS/" title="PS">PS<sup>1</sup></a></li>
+		
+			<li><a href="/categories/SEO/" title="SEO">SEO<sup>1</sup></a></li>
+		
+			<li><a href="/categories/SPA/" title="SPA">SPA<sup>1</sup></a></li>
+		
+			<li><a href="/categories/ajax/" title="ajax">ajax<sup>1</sup></a></li>
+		
+			<li><a href="/categories/git/" title="git">git<sup>2</sup></a></li>
+		
+			<li><a href="/categories/github/" title="github">github<sup>2</sup></a></li>
+		
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		
+			<li><a href="/categories/php/" title="php">php<sup>1</sup></a></li>
+		
+			<li><a href="/categories/服务器端模块化/" title="服务器端模块化">服务器端模块化<sup>1</sup></a></li>
+		
+			<li><a href="/categories/框架/" title="框架">框架<sup>1</sup></a></li>
+		
+			<li><a href="/categories/跨域/" title="跨域">跨域<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ES6/" title="ES6">ES6<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+		
+			<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+		
+			<li><a href="/tags/PS/" title="PS">PS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/SEO/" title="SEO">SEO<sup>2</sup></a></li>
+		
+			<li><a href="/tags/SPA/" title="SPA">SPA<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css3/" title="css3">css3<sup>1</sup></a></li>
+		
+			<li><a href="/tags/es6/" title="es6">es6<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>3</sup></a></li>
+		
+			<li><a href="/tags/github/" title="github">github<sup>3</sup></a></li>
+		
+			<li><a href="/tags/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		
+			<li><a href="/tags/php/" title="php">php<sup>1</sup></a></li>
+		
+			<li><a href="/tags/react-js/" title="react.js">react.js<sup>1</sup></a></li>
+		
+			<li><a href="/tags/服务器/" title="服务器">服务器<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://adminlly.github.io" target="_blank" title="李刘玉">李刘玉</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
