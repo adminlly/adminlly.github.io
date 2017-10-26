@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>AMD和Commonjs ? | 李刘玉的博客</title>
+    <title>JS严格模式 | 李刘玉的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="李刘玉">
     
-    <meta name="description" content="说说你对AMD和Commonjs的理解
+    <meta name="description" content="1.概述除了正常运行模式，ECMAscript 5添加了第二种运行模式：”严格模式”（strict mode）。顾名思义，这种模式使得Javascript在更严格的条件下运行。2.为什么用严格模式
 
-CommonJS是服务器端模块的规范，Node.js采用了这个规范。CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。AMD规范则是非同步加载模块，允许指定回调函数
-AMD推荐的风格通过返回一个对象做为模块对象，CommonJ">
+消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;
+消除代码运行的一些不安全之">
     
     
     
@@ -70,15 +70,15 @@ AMD推荐的风格通过返回一个对象做为模块对象，CommonJ">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/11/Modules/" title="AMD和Commonjs ?" itemprop="url">AMD和Commonjs ?</a>
+      <a href="/2016/09/16/js1/" title="JS严格模式" itemprop="url">JS严格模式</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://adminlly.github.io" title="李刘玉">李刘玉</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-04-10T16:00:00.000Z" itemprop="datePublished">2016-04-11</time>
-    Updated:<time datetime="2017-10-26T15:02:22.245Z" itemprop="dateModified">2017-10-26</time>
+    <time datetime="2016-09-16T11:07:23.000Z" itemprop="datePublished">2016-09-16</time>
+    Updated:<time datetime="2017-10-26T15:13:38.348Z" itemprop="dateModified">2017-10-26</time>
     
   </p>
 </header>
@@ -90,43 +90,34 @@ AMD推荐的风格通过返回一个对象做为模块对象，CommonJ">
 		
 		</div>
 		
-		<p><strong>说说你对AMD和Commonjs的理解</strong></p>
+		<p>1.概述<br>除了正常运行模式，ECMAscript 5添加了第二种运行模式：”严格模式”（strict mode）。顾名思义，这种模式使得Javascript在更严格的条件下运行。<br>2.为什么用严格模式</p>
 <ul>
-<li>CommonJS是服务器端模块的规范，Node.js采用了这个规范。CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。AMD规范则是非同步加载模块，允许指定回调函数</li>
-<li>AMD推荐的风格通过返回一个对象做为模块对象，CommonJS的风格通过对module.exports或exports的属性赋值来达到暴露模块对象的目的</li>
+<li>消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;</li>
+<li>消除代码运行的一些不安全之处，保证代码运行的安全；</li>
+<li>提高编译器效率，增加运行速度；</li>
+<li>为未来新版本的Javascript做好铺垫。<br>“严格模式”体现了Javascript更合理、更安全、更严谨的发展方向，包括IE 10在内的主流浏览器，都已经支持它，许多大项目已经开始全面拥抱它。<br>另一方面，同样的代码，在”严格模式”中，可能会有不一样的运行结果；一些在”正常模式”下可以运行的语句，在”严格模式”下将不能运行。掌握这些内容，有助于更细致深入地理解Javascript，让你变成一个更好的程序员。<br>3.进入标志<br>“use strict”;<br>4.如何调用<br>4.1针对单个脚本<br>　<script><br>　　　　“use strict”;<br>　　　　console.log(“这是严格模式。”);<br>　　</script><br>4.2针对单个函数</li>
 </ul>
-<p><strong>模块化开发怎么做？</strong></p>
-<ul>
-<li>立即执行函数,不暴露私有成员</li>
-</ul>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> module1 = (<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">　　　　<span class="keyword">var</span> _count = <span class="number">0</span>;</div><div class="line">　　　　<span class="keyword">var</span> m1 = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">　　　　　　<span class="comment">//...</span></div><div class="line">　　　　&#125;;</div><div class="line">　　　　<span class="keyword">var</span> m2 = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">　　　　　　<span class="comment">//...</span></div><div class="line">　　　　&#125;;</div><div class="line">　　　　<span class="keyword">return</span> &#123;</div><div class="line">　　　　　　m1 : m1,</div><div class="line">　　　　　　m2 : m2</div><div class="line">　　　　&#125;;</div><div class="line">　　&#125;)();</div></pre></td></tr></table></figure>
-<p><strong>AMD（Modules/Asynchronous-Definition）、CMD（Common Module Definition）规范区别？</strong></p>
-<ul>
-<li>Asynchronous Module Definition，异步模块定义，所有的模块将被异步加载，模块加载不影响后面语句运行。所有依赖某些模块的语句均放置在回调函数中</li>
-</ul>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// CMD</span></div><div class="line"><span class="function"><span class="title">define</span><span class="params">(function(require, exports, module)</span></span> &#123;</div><div class="line">    <span class="selector-tag">var</span> <span class="selector-tag">a</span> = require(<span class="string">'./a'</span>)</div><div class="line">    <span class="selector-tag">a</span>.doSomething()</div><div class="line">    <span class="comment">// 此处略去 100 行</span></div><div class="line">    <span class="selector-tag">var</span> <span class="selector-tag">b</span> = require(<span class="string">'./b'</span>) <span class="comment">// 依赖可以就近书写</span></div><div class="line">    <span class="selector-tag">b</span>.doSomething()</div><div class="line">    <span class="comment">// ...</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// AMD 默认推荐</span></div><div class="line"><span class="function"><span class="title">define</span><span class="params">([<span class="string">'./a'</span>, <span class="string">'./b'</span>], function(a, b)</span></span> &#123; <span class="comment">// 依赖必须一开始就写好</span></div><div class="line">    <span class="selector-tag">a</span>.doSomething()</div><div class="line">    <span class="comment">// 此处略去 100 行</span></div><div class="line">    <span class="selector-tag">b</span>.doSomething()</div><div class="line">    <span class="comment">// ...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p><strong>对前端模块化的认识</strong></p>
-<ul>
-<li>AMD 是 RequireJS 在推广过程中对模块定义的规范化产出</li>
-<li>CMD 是 SeaJS 在推广过程中对模块定义的规范化产出</li>
-<li>AMD 是提前执行，CMD 是延迟执行</li>
-<li>AMD推荐的风格通过返回一个对象做为模块对象，CommonJS的风格通过对module.exports或exports的属性赋值来达到暴露模块对象的目的</li>
-</ul>
+<p>function strict(){<br>　　　　“use strict”;<br>　　　　return “这是严格模式。”;<br>　　}<br>　　function notStrict() {<br>　　　　return “这是正常模式。”;<br>　　}</p>
+<p>5.语法与行为改变<br>严格模式对Javascript的语法和行为，都做了一些改变。<br>5.1 全局变量显式声明<br>在正常模式中，如果一个变量没有声明就赋值，默认是全局变量。严格模式禁止这种用法，全局变量必须显式声明。<br>“use strict”;<br>　　v = 1; // 报错，v未声明<br>　　for(i = 0; i &lt; 2; i++) { // 报错，i未声明<br>　　}<br>因此，严格模式下，变量都必须先用var命令声明，然后再使用。</p>
+<p>5.2 禁止this关键字指向全局对象<br>function f(){<br>　　　　return !this;<br>　　}<br>　　// 返回false，因为”this”指向全局对象，”!this”就是false<br>　　function f(){<br>　　　　“use strict”;<br>　　　　return !this;<br>　　}<br>　　// 返回true，因为严格模式下，this的值为undefined，所以”!this”为true。<br>因此，使用构造函数时，如果忘了加new，this不再指向全局对象，而是报错。<br>function f(){<br>　　　　“use strict”;<br>　　　　this.a = 1;<br>　　};<br>　　f();// 报错，this未定义</p>
+<p>5.3禁止删除变量<br>严格模式下无法删除变量。只有configurable设置为true的对象属性，才能被删除。</p>
+<p>“use strict”;<br>　　var x;<br>　　delete x; // 语法错误<br>　　var o = Object.create(null, {‘x’: {<br>　　　　　　value: 1,<br>　　　　　　configurable: true<br>　　}});<br>　　delete o.x; // 删除成功</p>
+<p>5.4对象不能有重名的属性<br>正常模式下，如果对象有多个重名属性，最后赋值的那个属性会覆盖前面的值。严格模式下，这属于语法错误。<br>“use strict”;<br>　　var o = {<br>　　　　p: 1,<br>　　　　p: 2<br>　　}; // 语法错误<br>5.5函数不能有重名的参数<br>正常模式下，如果函数有多个重名的参数，可以用arguments[i]读取。严格模式下，这属于语法错误。<br>　“use strict”;<br>　　function f(a, a, b) { // 语法错误<br>　　　　return ;<br>　　}</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/JS/">JS</a>
+  </div>
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/服务器端模块化/">服务器端模块化</a>
-</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://adminlly.github.io/2016/04/11/Modules/" data-title="AMD和Commonjs ? | 李刘玉的博客" data-tsina="" class="share clearfix">
+  <div data-url="http://adminlly.github.io/2016/09/16/js1/" data-title="JS严格模式 | 李刘玉的博客" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -136,18 +127,18 @@ AMD推荐的风格通过返回一个对象做为模块对象，CommonJ">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/04/11/mobile-terminal/" title="mongoDB和MySQL ?">
+ <a href="/2016/11/10/PS/" title="PS 图片类型区别">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  mongoDB和MySQL ?</span>
+  PS 图片类型区别</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/03/11/MVC/"  title="MVC和MVVM？">
+<a href="/2016/09/13/two/"  title="github常见操作和常见错误">
  <strong>NEXT:</strong><br/> 
- <span>MVC和MVVM？
+ <span>github常见操作和常见错误
 </span>
 </a>
 </div>

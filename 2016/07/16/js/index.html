@@ -1,0 +1,725 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>js常用代码段 | 李刘玉的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="李刘玉">
+    
+    <meta name="description" content="欢迎访问：锐志个人博客空间本文地址：http://www.xurry.top/2017/09/12/javascript_code_01
+把如下代码加入区域中:
+后退、前进
+
+返回
+    查看源码
+禁止查看源码
+刷新按钮一
+
+
+    function ReloadButton(){
+      ">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="李刘玉的博客" title="李刘玉的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="李刘玉的博客">李刘玉的博客</a></h1>
+				<h2 class="blog-motto">胆小认生，踏实认真</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">档案</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:adminlly.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/07/16/js/" title="js常用代码段" itemprop="url">js常用代码段</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://adminlly.github.io" title="李刘玉">李刘玉</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-07-16T11:07:11.000Z" itemprop="datePublished">2016-07-16</time>
+    Updated:<time datetime="2017-10-26T15:14:02.468Z" itemprop="dateModified">2017-10-26</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+		</div>
+		
+		<p>欢迎访问：锐志个人博客空间本文地址：<a href="http://www.xurry.top/2017/09/12/javascript_code_01" target="_blank" rel="external">http://www.xurry.top/2017/09/12/javascript_code_01</a></p>
+<p>把如下代码加入<body>区域中:</body></p>
+<p>后退、前进</p>
+<p><input type="button" value="后退" onclick="history.go(-1)"></p>
+<p><input type="button" value="前进" onclick="history.go( 1 );return true;"><br>返回</p>
+<p><form><br>    <input type="button" value="返回上一步" onclick="history.back(-1)"><br></form><br>查看源码</p>
+<p><input type="button" name="view" value="查看源码" onclick="window.location=" view-source:"="" +window.location.href"=""><br>禁止查看源码</p>
+<p><body oncontextmenu="return false"></body><br>刷新按钮一</p>
+<p><input type="button" value="刷新按钮一" onclick="ReloadButton()"></p>
+<script>
+    function ReloadButton(){
+        location.href="i001.htm";
+    }
+</script>
+刷新按钮二
+
+<input type="button" value="刷新按钮二" onclick="history.go(0)">
+回首页按钮
+
+<input type="button" value="首页" onclick="HomeButton()">
+<script>
+    function HomeButton(){
+        location.href=http://www.xurry.top;
+    }
+</script>
+弹出警告框
+
+<input type="button" value="弹出警告框" onclick="AlertButton()">
+<script>
+    function AlertButton(){
+        window.alert("要多多光临呀！");
+    }
+</script>
+状态栏信息
+
+<input type="button" value="状态栏信息" onclick="StatusButton()">
+<script>
+    function StatusButton(){
+        window.status="要多多光临呀！";
+    }
+</script>
+背景色变换
+
+<form><input type="button" value="背景色变换" onclick="BgButton()"></form>
+<script>
+function BgButton(){
+    if (document.bgColor=='#00ffff'){
+        document.bgColor='#ffffff';
+    }else{
+        document.bgColor='#00ffff';
+    }
+}
+</script>
+
+
+<p>打开新窗口</p>
+<p><input type="button" value="打开新窗口" onclick="NewWindow()"></p>
+<script>
+    function NewWindow(){
+        window.open("c01.htm","","height=240,width=340,status=no,location=no,toolbar=no,directories=no,menubar=no");
+    }
+</script>
+窗口最小化
+
+<object id="min" type="application/x- oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11">
+    < PARAM name="Command" value="Minimize">
+</object>
+< button onClick="min.Click()">窗口最小化
+全屏代码
+
+<input type="BUTTON" name="FullScreen" value="全屏显示" onclick="window.open(document.location, 'butong_net', 'fullscreen')">
+关闭窗口
+
+<object id="closes" type="application/x- oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11">
+    <param name="Command" value="Close">
+</object>
+< input type="button" value="关闭窗口" onClick="closes.Click();">
+关闭窗口
+
+<input type="button" value="关闭窗口" onclick="javascript:self.close()">
+最大化
+
+<object id="big" classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11">
+    <param name="Command" value="Maximize">
+</object>
+<input type="button" value="最大化" onclick="big.Click()">
+关闭输入法
+
+<input style="ime-mode:disabled" value="关闭输入法">
+链接按钮1
+
+<input type="button" value="链接按钮 1" onclick="window.open('http://www.xurry.top', 'Sample', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes,copyhistory=yes,width=790,height=520,left=0,top=0')" name="input">
+链接按钮2
+
+<input type="BUTTON" name="Button" value="链接按钮2" onclick="showModalDialog('http://www.xurry.top')">
+链接按钮3
+
+<input type="submit" value="链接按钮3" onclick="location.href='http://www.xurry.top'">
+警告框显示源代码
+
+<button onclick="alert(document.documentElement.outerHTML)" style="width:110">警告框显示源代码</button>
+点击后按钮清空
+
+<input type="button" value="打印" onclick="this.style.visibility='hidden';window.print();">
+打印
+
+<input type="button" value="打印" onclick="window.print();">
+打印预览
+
+<object classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2" height="0" id="wb" name="wb" width="0"></object>
+<input type="button" value="打印预览" onclick="wb.execwb(7,1)">
+另存为
+
+<input onclick="document.execCommand('saveas','true','常用代码.htm')" type="button" value="另存为">
+点击自动复制
+
+<script>
+    function oCopy(obj){
+        obj.select();
+        js=obj.createTextRange();
+        js.execCommand("Copy");
+    }
+</script>
+<input type="text" value="点击自动复制" onclick="oCopy(this)" size="11">
+自动选中
+
+<input value="自动选中" onfocus="this.select()" onmouseover="this.focus()" size="11">
+打开源代码
+
+<button onclick="document.location = 'view-source:' + document.location" size="7">打开源代码</button>
+新窗口延迟打开
+
+<input type="button" value="新窗口延迟打开" onclick="javascript:setTimeout("window.open('http://www.winliuxq.com/')",10000)">
+实现选中文本框里的前一半的内容
+
+<input type="text" value="选中文本框里的前一半的内容" size="30" onmouseover="this.select();tR=document.selection.createRange();tR.moveEnd('character',-8);tR.select();">
+<input type="text" value="选中部分内容，非IE可以用这个" size="30" onmouseover="this.selectionStart=this.value.length-4;this.selectionEnd=this.value.length">
+点击清空文字
+
+<input type="text" name="artist" size="14" value="点击清空文字" onmouseover="this.focus()" onfocus="this.select()" onclick="if(this.value==' 点击清空文字')this.value=''">
+点击清空文字
+
+<input name="name" size="11" value="点击清空文字" onmouseover="this.focus()" onblur="if (this.value =='') this.value='点击清空文字'" onfocus="this.select()" onclick="if (this.value=='点击清空文字 ') this.value=''">
+等于标题(title):
+
+<input type="text" value="" id="aa" size="20">
+<script>
+    document.getElementById("aa").value=document.title;
+</script>
+检测IE是否脱机
+
+<input type="button" value="测试" onclick="alert(window.navigator.onLine)">
+11种刷新按钮的方法
+
+<input type="button" value="刷新" onclick="history.go(0)">
+<input type="button" value="刷新" onclick="location.reload()">
+<input type="button" value="刷新" onclick="location=location">
+<input type="button" value="刷新" onclick="location.assign(location)">
+<input type="button" value="刷新" onclick="document.execCommand('Refresh')">
+<input type="button" value="刷新" onclick="window.navigate(location)">
+<input type="button" value="刷新" onclick="location.replace(location)">
+<input type="button" value="刷新" onclick="window.open('自身的文件','_self')">
+<input type="button" value="刷新" onclick="document.all.WebBrowser.ExecWB(22,1)">
+<object classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2" height="0" id="WebBrowser" width="0"></object>
+<form action="自身的文件"><input type="submit" value="刷新"></form>
+<a id="a1" href="自身的文件"></a><input type="button" value="刷新" onclick="a1.click()">
+
+
+脚本说明:
+把如下代码加入<body>区域中：
+
+<a href="#" onclick="document.execCommand("open")">打开</a>
+<a onclick="window.open('i001.htm','','height=300,width=300,resizable=no,location=net');" href="">打开指定大小网页</a>使用 记事本 编辑
+<a href="#" onclick="document.execCommand("saveAs")">另存为</a>
+<a href="#" onclick="document.execCommand("print")">打印</a>
+<a href="javascript:window.print();" target="_blank" rel="external">打印</a>
+<a href="mailto:429752806@163.com" target="_blank" rel="external">发送E-mail</a>
+<a href="#" onclick="document.execCommand("selectAll")">全选</a>
+<a href="#" onclick="location.reload()">刷新1</a>
+<a href="#" onclick="history.go(0)">刷新2</a>
+<a href="#" onclick="location.replace("view-source:"+location)">查看源文件</a>
+<a href="#" onclick="window.open(document.location,"url","fullscreen")">全屏显示</a>
+<a href="#" onclick="window.external.showBrowserUI("PrivacySettings",null)">internet选项</a>
+<a href="#" oncontextmenu="window.open(this.href);return false;">单击右键将在新窗口中打开</a>
+<a href="#" onclick="history.go(1)">前进1</a>
+<a href="#" onclick="history.forward()">前进2</a>
+<a href="#" onclick="history.go(-1)">后退1</a>
+<a href="#" onclick="history.back()">后退2</a>
+<a href="#" onclick="window.external.showBrowserUI("OrganizeFavorites",null)">整理收藏夹</a>
+<span onclick="window.external.addFavorite('http://www.winliuxq.com /','网页特效站点')" style="CURSOR: hand" title="网页特效站点">加入收藏</span>
+<a href="#" onclick="window.external.addFavorite('http://www.winliuxq.com/','网页特效站点')">添加到收藏夹</a>
+<a href="javascript:window.external.AddFavorite('http://www.winliuxq.com/', '网页特效站点')" target="_blank" rel="external">点击加入收藏夹</a>
+<a href="#" onmouseover="window.external.addFavorite('http://www.winliuxq.com /','网页特效站点')" target="_self">鼠标感应收藏本站</a>
+<a href="#" onmouseover="this.style.behavior='url(#default#homepage)'; this.setHomePage('http://www.yiloo.com/js/');" target="_self">鼠标感应设为首页</a>
+<a href="javascript:window.close()" target="_blank" rel="external">关闭窗口</a>
+<a href="#" onclick="window.close();return" false)="">关闭窗口</a>
+<a href="#" onclick="setTimeout(window.close(),3000)">3秒关闭本窗口</a>
+<script>
+    function shutwin(){
+        window.close();
+        return;
+    }
+</script>
+<a href="javascript:shutwin();" target="_blank" rel="external">关闭本窗口</a>
+<span onclick="var strHref=window.location.href; this.style.behavior='url(#default#homepage)'; this.setHomePage('http://www.winliuxq.com/');" style="CURSOR: hand">设为首页</span>
+等于标题栏:<script>document.write(document.title);</script>
+<a href="javascript:void(0);" onclick="window.external.AddFavorite(location.href, document.title);" target="_blank" rel="external">收藏本页</a>
+<a href="javascript:window.external.AddFavorite(document.location.href, document.title)" target="_blank" rel="external">收藏本页</a>
+<a href="javascript:window.external.addChannel("typhoon.cdf")" target="_blank" rel="external">加入频道</a>
+<a href="i003.htm" onclick="return false;" ondblclick="window.open('i003.htm');">双击打开链接</a>
+<style>#close a:hover {background:url(javascript:window.opener=0; window.close());}</style><div id="close"><a href="">关闭窗口</a></div>
+<a href="javascript:void(0)" onmouseover="alert('对不起,禁止选中!')" target="_blank" rel="external">链接禁止</a>
+<a href="" onmouseover="alert('本站域名:http://www.winliuxq.com/');return true;">记住本站域名</a>
+滚动条在左侧,将<html>改为<html dir="RTL">
+
+
+网页半透明
+
+<body style="filter:Alpha(Opacity=50)">
+随机选择背景色
+
+<body>
+    <script>
+        document.body.style.background=(["red","blue","pink","navy","gray","yellow","green","purple"])[parseInt(Math.random()*8)];
+    </script>
+</body>
+框架页中不显示滚动条：
+
+<script>
+    self.moveTo(0,0)
+    self.resizeTo(screen.availWidth,screen.availHeight)
+</script>
+防止网页被框架
+
+<script language="javascript">
+    if (top.location !== self.location) {
+        top.location=self.location;
+    }
+</script>
+永远都会带着框架
+
+<script language="javascript">
+    if (window == top)top.location.href = "frame.htm"; //frame.htm为框架网页
+</script>
+窗口自动最大化
+
+<script language="JavaScript">
+    self.moveTo(0,0)
+    self.resizeTo(screen.availWidth,screen.availHeight)
+</script>
+打开窗口自动最大化
+
+<object classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" onreadystatechange="if (this.readyState==4) this.Click();" viewastext=""><param name="Command" value="Maximize"></object>
+闪屏代码
+
+<script>
+    var color = new Array;
+    color[1] = "black";
+    color[2] = "white";
+    for(x = 0; x <3; x++){
+        document.bgColor = color[x];
+        if(x == 2){
+            x = 0;
+        }
+    }
+</script>
+不能被另存为
+
+<noscript><iframe src="*.html"></iframe></noscript>
+汉字字库调用
+
+<script>
+    for(i=19968;i<40870;i++){
+        console.log(String.fromCharCode(i))
+    };
+</script>
+显示现在时间的脚本
+
+<script language="vbscript">console.log now</script>
+显示最后修改时间的脚本
+
+<script>console.log(document.lastModified)</script>
+按下F12键,直接返回首页
+
+<script>
+    function look(){
+        if(event.keyCode==123){
+            document.location.href=http://www.winliuxq.com/
+        }
+    }
+    if(document.onkeydown==null){
+        document.onkeydown=look
+    }
+</script>
+端口检测
+
+<img src="http://www.winliuxq/zza.jpg" onload="alert('端口可用')" onerror="alert('端口禁止')" ...="">
+无法最小化的窗口
+
+<body onblur="self.focus();">
+链接点外部css文件
+
+<style>@import url("ie.css");</style>
+内嵌式框架-网页中调用另外网页：
+
+<object type="text/x-scriptlet" width="600" height="1000" data="http://www.winliuxq.com/"></object>
+刷新改变窗口大小
+
+<object classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" onreadystatechange="if (this.readyState==4) this.Click();" viewastext=""><param name="Command" value="Maximize"></object>
+JavaScript实现网页竖虚线
+
+<script>
+    hei=120;
+    d1=2;
+    d2=2;
+    cou=Math.floor(hei/(d1+d2));
+    console.log('<table cellspacing=0 cellpadding=0 width=1 height='+hei+'>');
+    for(i=0;i<cou;i++){
+        console.log('<tr><td height='+d2+'><tr><td height='+d1+' bgcolor=333333>')
+    }
+</script>
+js翻页
+
+<script>
+    console.log("<a href="+location.href.replace(/\.html/g,"_2.html")+">2</a>");
+</script>
+
+</body></body></html></html></body>  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/JS/">JS</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://adminlly.github.io/2016/07/16/js/" data-title="js常用代码段 | 李刘玉的博客" data-tsina="" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/07/25/data-structure/" title="栈和队列">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  栈和队列</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/07/15/CSS/"  title="CSS规则">
+ <strong>NEXT:</strong><br/> 
+ <span>CSS规则
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+			<li><a href="/categories/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Cookie/" title="Cookie">Cookie<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Css/" title="Css">Css<sup>1</sup></a></li>
+		
+			<li><a href="/categories/ES6/" title="ES6">ES6<sup>1</sup></a></li>
+		
+			<li><a href="/categories/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+		
+			<li><a href="/categories/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Hexo教程/" title="Hexo教程">Hexo教程<sup>1</sup></a></li>
+		
+			<li><a href="/categories/JSON/" title="JSON">JSON<sup>2</sup></a></li>
+		
+			<li><a href="/categories/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+		
+			<li><a href="/categories/MVC/" title="MVC">MVC<sup>1</sup></a></li>
+		
+			<li><a href="/categories/PS/" title="PS">PS<sup>1</sup></a></li>
+		
+			<li><a href="/categories/SEO/" title="SEO">SEO<sup>1</sup></a></li>
+		
+			<li><a href="/categories/SPA/" title="SPA">SPA<sup>1</sup></a></li>
+		
+			<li><a href="/categories/ajax/" title="ajax">ajax<sup>1</sup></a></li>
+		
+			<li><a href="/categories/git/" title="git">git<sup>2</sup></a></li>
+		
+			<li><a href="/categories/github/" title="github">github<sup>2</sup></a></li>
+		
+			<li><a href="/categories/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		
+			<li><a href="/categories/php/" title="php">php<sup>1</sup></a></li>
+		
+			<li><a href="/categories/服务器端模块化/" title="服务器端模块化">服务器端模块化<sup>1</sup></a></li>
+		
+			<li><a href="/categories/框架/" title="框架">框架<sup>1</sup></a></li>
+		
+			<li><a href="/categories/跨域/" title="跨域">跨域<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ES6/" title="ES6">ES6<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+		
+			<li><a href="/tags/JS/" title="JS">JS<sup>3</sup></a></li>
+		
+			<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>1</sup></a></li>
+		
+			<li><a href="/tags/PS/" title="PS">PS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/SEO/" title="SEO">SEO<sup>2</sup></a></li>
+		
+			<li><a href="/tags/SPA/" title="SPA">SPA<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css3/" title="css3">css3<sup>1</sup></a></li>
+		
+			<li><a href="/tags/es6/" title="es6">es6<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>3</sup></a></li>
+		
+			<li><a href="/tags/github/" title="github">github<sup>3</sup></a></li>
+		
+			<li><a href="/tags/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+		
+			<li><a href="/tags/php/" title="php">php<sup>1</sup></a></li>
+		
+			<li><a href="/tags/react-js/" title="react.js">react.js<sup>1</sup></a></li>
+		
+			<li><a href="/tags/服务器/" title="服务器">服务器<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://adminlly.github.io" target="_blank" title="李刘玉">李刘玉</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
