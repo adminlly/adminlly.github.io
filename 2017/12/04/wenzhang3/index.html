@@ -4,16 +4,16 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>如何解决跨域问题 | 李刘玉的博客</title>
+    <title>想法或者感悟 | 李刘玉的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="李刘玉">
     
-    <meta name="description" content="如何解决跨域问题
-JSONP：
+    <meta name="description" content="一
+李白和杜普都是我的偶像，李白和杜普都是我的偶像，中的技能用到，并且学会，可是公司的产品没用到。 自己只能是demo 小作品。 这样就是恶性循环了，肯定要改变，可是怎么李白和杜普都是我的偶像，了，就说，快做好了，就差上线了。然后把自己怎么李白和杜普都是我的偶像，
 
-原理是：动态插入script标签，通过script标签引入一个js文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入
-由于同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，">
+二
+有时感觉自己的未来，总别一些">
     
     
     
@@ -71,15 +71,15 @@ JSONP：
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/05/15/cross-domain/" title="如何解决跨域问题" itemprop="url">如何解决跨域问题</a>
+      <a href="/2017/12/04/wenzhang3/" title="想法或者感悟" itemprop="url">想法或者感悟</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://adminlly.github.io" title="李刘玉">李刘玉</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-05-15T10:38:39.000Z" itemprop="datePublished">2016-05-15</time>
-    Updated:<time datetime="2017-10-26T14:33:30.833Z" itemprop="dateModified">2017-10-26</time>
+    <time datetime="2017-12-03T17:50:19.000Z" itemprop="datePublished">2017-12-04</time>
+    Updated:<time datetime="2017-12-03T17:53:32.685Z" itemprop="dateModified">2017-12-04</time>
     
   </p>
 </header>
@@ -88,66 +88,33 @@ JSONP：
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何解决跨域问题"><span class="toc-number">1.</span> <span class="toc-text">如何解决跨域问题</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一"><span class="toc-number">1.</span> <span class="toc-text">一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二"><span class="toc-number">2.</span> <span class="toc-text">二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三"><span class="toc-number">3.</span> <span class="toc-text">三</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#还有好多以后再写"><span class="toc-number">3.1.</span> <span class="toc-text">还有好多以后再写</span></a></li></ol></li></ol>
 		</div>
 		
-		<h3 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题"></a>如何解决跨域问题</h3><hr>
-<p><strong>JSONP：</strong></p>
-<ul>
-<li>原理是：动态插入script标签，通过script标签引入一个js文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入</li>
-<li>由于同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，为了实现跨域请求，可以通过script标签实现跨域请求，然后在服务端输出JSON数据并执行回调函数，从而解决了跨域的数据请求</li>
-<li><p>优点是兼容性好，简单易用，支持浏览器与服务器双向通信。缺点是只支持GET请求</p>
-</li>
-<li><p>JSONP：json+padding（内填充），顾名思义，就是把JSON填充到一个盒子里</p>
-</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">createJs</span><span class="params">(sUrl)</span></span>&#123;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="javascript">        <span class="keyword">var</span> oScript = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span></div><div class="line"><span class="actionscript">        oScript.type = <span class="string">'text/javascript'</span>;</span></div><div class="line"><span class="undefined">        oScript.src = sUrl;</span></div><div class="line"><span class="javascript">        <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(oScript);</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="actionscript">    createJs(<span class="string">'jsonp.js'</span>);</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="undefined">    box(&#123;</span></div><div class="line"><span class="actionscript">       <span class="string">'name'</span>: <span class="string">'test'</span></span></div><div class="line"><span class="undefined">    &#125;);</span></div><div class="line"><span class="undefined"></span></div><div class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">box</span><span class="params">(json)</span></span>&#123;</span></div><div class="line"><span class="undefined">        alert(json.name);</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><strong>CORS</strong></p>
-<ul>
-<li>服务器端对于CORS的支持，主要就是通过设置Access-Control-Allow-Origin来进行的。如果浏览器检测到相应的设置，就可以允许Ajax进行跨域的访问</li>
-</ul>
-<p><strong>通过修改document.domain来跨子域</strong></p>
-<ul>
-<li>将子域和主域的document.domain设为同一个主域.前提条件：这两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用document.domain进行跨域。主域相同的使用document.domain</li>
-</ul>
-<p><strong>使用window.name来进行跨域</strong></p>
-<ul>
-<li>window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的</li>
-</ul>
-<p><strong>使用HTML5中新引进的window.postMessage方法来跨域传送数据</strong></p>
-<ul>
-<li>还有flash、在服务器上设置代理页面等跨域方式。个人认为window.name的方法既不复杂，也能兼容到几乎所有浏览器，这真是极好的一种跨域方法</li>
-</ul>
-<p><strong>如何解决跨域问题?</strong></p>
-<ul>
-<li><p>jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页面</p>
-</li>
-<li><p>如何解决跨域问题?</p>
-<ul>
-<li>document.domain + iframe：要求主域名相同 //只能跨子域</li>
-<li>JSONP(JSON with Padding)：response: callback(data) //只支持 GET 请求</li>
-<li>跨域资源共享CORS(XHR2)：Access-Control-Allow //兼容性 IE10+</li>
-<li>跨文档消息传输(HTML5)：postMessage + onmessage  //兼容性 IE8+</li>
-<li>WebSocket(HTML5)：new WebSocket(url) + onmessage //兼容性 IE10+</li>
-<li>服务器端设置代理请求：服务器端不受同源策略限制</li>
-</ul>
-</li>
-</ul>
-  
+		<h3 id="一"><a href="#一" class="headerlink" title="一"></a>一</h3><blockquote>
+<p>李白和杜普都是我的偶像，李白和杜普都是我的偶像，中的技能用到，并<br>且学会，可是公司的产品没用到。 自己只能是demo 小作品。 这样就是恶性循环了，肯定<br>要改变，可是怎么李白和杜普都是我的偶像，了，就说，快做好了，就差上线了。然后把自己怎么李白和杜普都是我的偶像，</p>
+</blockquote>
+<h3 id="二"><a href="#二" class="headerlink" title="二"></a>二</h3><blockquote>
+<p>有时感觉自己的未来，总别一些突发因素左右，在变化，不按照自己计划来。就像现在<br>我希望自己成为一个很优秀的前端开发工程师，在慢慢进化成全栈开发工程师，不过全站<br>要学的很多。就优秀的前端工程师，自己要做很多作品，这样才能把其中的技能用到，并<br>且学会，可是公司的产品没用到。 自己只能是demo 小作品。 这样就是恶性循环了，肯定<br>要改变，可是怎么改变。去面试新一家公司问你有新技术上线的案例吗，这就很尴尬，就<br>没用到。哎。。。。只能好好学，会了，就说，快做好了，就差上线了。然后把自己怎么<br>做怎么实现的，给他讲一下，谋事在人成事在天，剩下的就听天吧、</p>
+</blockquote>
+<h3 id="三"><a href="#三" class="headerlink" title="三"></a>三</h3><blockquote>
+<p>有时感觉自己的未来，总别一些突发因素左右，在变化，不按照自己计划来。就像现在<br>我希望自己成为一个很优秀的前端开发工程师，在慢慢进化成全栈开发工程师，不过全站<br>要学的很多。就优秀的前端工程师，自己要做很多作品，这样才能把其中的技能用到，并<br>且学会，可是公司的产品没用到。 自己只能是demo 小作品。 这样就是恶性循环了，肯定<br>要改变，可是怎么改变。去面试新一家公司问你有新技术上线的案例吗，这就很尴尬，就<br>没用到。哎。。。。只能好好学，会了，就说，快做好了，就差上线了。然后把自己怎么<br>做怎么实现的，给他讲一下，谋事在人成事在天，剩下的就听天吧、</p>
+</blockquote>
+<h4 id="还有好多以后再写"><a href="#还有好多以后再写" class="headerlink" title="还有好多以后再写"></a>还有好多以后再写</h4>  
 	</div>
 		<footer class="article-footer clearfix">
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/跨域/">跨域</a>
+  <a class="article-category-link" href="/categories/碎念/">碎念</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://adminlly.github.io/2016/05/15/cross-domain/" data-title="如何解决跨域问题 | 李刘玉的博客" data-tsina="" class="share clearfix">
+  <div data-url="http://adminlly.github.io/2017/12/04/wenzhang3/" data-title="想法或者感悟 | 李刘玉的博客" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -156,19 +123,11 @@ JSONP：
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/06/09/Git/" title="git fetch和git pull">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  git fetch和git pull</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/05/13/first/"  title="hexo&amp;github 个人博客">
+<a href="/2017/09/16/js2/"  title="闭包">
  <strong>NEXT:</strong><br/> 
- <span>hexo&amp;github 个人博客
+ <span>闭包
 </span>
 </a>
 </div>
@@ -181,7 +140,7 @@ JSONP：
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何解决跨域问题"><span class="toc-number">1.</span> <span class="toc-text">如何解决跨域问题</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一"><span class="toc-number">1.</span> <span class="toc-text">一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二"><span class="toc-number">2.</span> <span class="toc-text">二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三"><span class="toc-number">3.</span> <span class="toc-text">三</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#还有好多以后再写"><span class="toc-number">3.1.</span> <span class="toc-text">还有好多以后再写</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
